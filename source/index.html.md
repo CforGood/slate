@@ -56,14 +56,26 @@ cforgood expects for the API key to be included in all API requests to the serve
 You must replace <code>meowmeowmeow</code> with your personal API key.
 </aside>
 
-# User
+# Login
 
-User is an API allowing retrieve and update specific user .
+Login is an API allowing login user.
 
-## Get a Specific User
+There are two different ways to authenticate when performing API requests:
+
+- E-Mail and password
+- Oauth Access Token
+
+For information:
+
+- user_member | false | render popup not_member_dashboard
+- user_trial_done | true |render popup welcome_memebr_trial (update > trial_done)
+- businesses_around | < 0 | render popup o_perks_dashboaard
+- uses_without_feedback | > 0 | render form/feedback_dashboard
+
+## Login a Specific User via facebook
 
 ```shell
-curl "https://app.cforgood.com/api/v1/user"
+curl "https://app.cforgood.com/api/v1/auth_facebook/<ACCESS_TOKEN>"
   -H "Authorization: meowmeowmeow"
 ```
 
@@ -71,14 +83,14 @@ curl "https://app.cforgood.com/api/v1/user"
 require 'cforgood'
 
 api = cforgood::APIClient.authorize!('meowmeowmeow')
-api.user.get(<EMAIL>, <PASSWORD>, <PROVIDER>, <UID>)
+api.auth_facebook.get(<ACCESS_TOKEN>)
 ```
 
 ```javascript
 const cforgood = require('cforgood');
 
 let api = cforgood.authorize('meowmeowmeow');
-let max = api.user.get(<EMAIL>, <PASSWORD>, <PROVIDER>, <UID>);
+let max = api.auth_facebook.get(<ACCESS_TOKEN>);
 ```
 
 > The above command returns JSON structured like this:
@@ -87,9 +99,107 @@ let max = api.user.get(<EMAIL>, <PASSWORD>, <PROVIDER>, <UID>);
 [
   {
     "id": "",
-    "token": "",
+    "token": ""
+  }
+]
+```
+
+This endpoint retrieves a specific user.
+
+
+### HTTPS Request
+
+`GET https://app.cforgood.com/api/v1/auth_facebook/<ACCESS_TOKEN>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ACCES_TOKEN | The ACCESS_TOKEN return by Facebook SDK
+
+
+## Login a Specific User via email + password
+
+```shell
+curl "https://app.cforgood.com/api/v1/login/email=<EMAIL>&password=<PASSWORD>""
+  -H "Authorization: meowmeowmeow"
+```
+
+```ruby
+require 'cforgood'
+
+api = cforgood::APIClient.authorize!('meowmeowmeow')
+api.login.get(<EMAIL>, <PASSWORD>)
+```
+
+```javascript
+const cforgood = require('cforgood');
+
+let api = cforgood.authorize('meowmeowmeow');
+let max = api.login.get(<EMAIL>, <PASSWORD>);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": "",
+    "token": ""
+  }
+]
+```
+
+This endpoint retrieves a specific user.
+
+
+### HTTPS Request
+
+`GET https://app.cforgood.com/api/v1/login/email=<EMAIL>&password=<PASSWORD>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+EMAIL | The EMAIL of the user to retrieve
+PASSWORD | The PASSWORD of the user to retrieve
+
+
+# User
+
+User is an API allowing retrieve informations about an user.
+
+
+## Get a Specific User
+
+```shell
+curl "https://app.cforgood.com/api/v1/user/<ID>"
+  -H "Authorization: meowmeowmeow"
+```
+
+```ruby
+require 'cforgood'
+
+api = cforgood::APIClient.authorize!('meowmeowmeow')
+api.user.get(<ID>)
+```
+
+```javascript
+const cforgood = require('cforgood');
+
+let api = cforgood.authorize('meowmeowmeow');
+let max = api.user.get(<ID>);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": "",
     "first_name": "",
     "last_name": "",
+    "name": "",
     "member": "",
     "trial_done": ""
   }
@@ -98,21 +208,16 @@ let max = api.user.get(<EMAIL>, <PASSWORD>, <PROVIDER>, <UID>);
 
 This endpoint retrieves a specific user.
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
 
 ### HTTPS Request
 
-`GET https://app.cforgood.com/api/v1/user/email=<EMAIL>&password=<PASSWORD>&provider=<PROVIDER>&uid=<UID>`
+`GET https://app.cforgood.com/api/v1/user/<ID>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-EMAIL | The EMAIL of the user to retrieve
-PASSWORD | The PASSWORD of the user to retrieve
-PROVIDER | Facebook
-UID | Token return by facebook
-
+ID | The ID of the user to retrieve
 
 
 # Businesses
@@ -145,27 +250,12 @@ let businesses = api.businesses.get();
 ```json
 [
   {
-    "perks": [
-      {
-        "id": 2,
-        "name": ""
-      },
-      {
-        "id": 2,
-        "name": ""
-      }
-    ]
+    "id": 2,
+    "name": ""
+  },
   {
-    "perks": [
-      {
-        "id": 2,
-        "name": ""
-      },
-      {
-        "id": 2,
-        "name": ""
-      }
-    ]
+    "id": 2,
+    "name": ""
   }
 ]
 ```
@@ -180,10 +270,7 @@ This endpoint retrieves all businesses.
 
 Parameter | Default | Description
 --------- | ------- | -----------
-user_member | false | render popup not_member_dashboard
-user_trial_done | true |render popup welcome_memebr_trial (update > trial_done)
-businesses_around | < 0 | render popup o_perks_dashboaard
-uses_without_feedback | > 0 | render form/feedback_dashboard
+
 
 <aside class="success">
 Remember — need authenticated user!
