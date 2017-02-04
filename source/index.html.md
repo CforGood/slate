@@ -4,7 +4,6 @@ title: API Reference
 language_tabs:
   - shell
   - ruby
-  - python
   - javascript
 
 toc_footers:
@@ -19,27 +18,13 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the CforGood API! You can use our API to access CforGood API <endpoints class=""></endpoints>
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
-This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
 
 # Authentication
 
 > To authorize, use this code:
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
 
 ```shell
 # With shell, you can just pass the correct header with each request
@@ -47,17 +32,23 @@ curl "api_endpoint_here"
   -H "Authorization: meowmeowmeow"
 ```
 
-```javascript
-const kittn = require('kittn');
+```ruby
+require 'cforgood'
 
-let api = kittn.authorize('meowmeowmeow');
+api = Cforgood::APIClient.authorize!('meowmeowmeow')
+```
+
+```javascript
+const cforgood = require('cforgood');
+
+let api = cforgood.authorize('meowmeowmeow');
 ```
 
 > Make sure to replace `meowmeowmeow` with your API key.
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+<!-- cforgood uses API keys to allow access to the API. You can register a new cforgood API key at our [developer portal](https://app.cforgood.com/developers). -->
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+cforgood expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
 `Authorization: meowmeowmeow`
 
@@ -65,34 +56,29 @@ Kittn expects for the API key to be included in all API requests to the server i
 You must replace <code>meowmeowmeow</code> with your personal API key.
 </aside>
 
-# Kittens
+# User
 
-## Get All Kittens
+User is an API allowing retrieve and update specific user .
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+## Get a Specific User
 
 ```shell
-curl "http://example.com/api/kittens"
+curl "https://app.cforgood.com/api/v1/user"
   -H "Authorization: meowmeowmeow"
 ```
 
-```javascript
-const kittn = require('kittn');
+```ruby
+require 'cforgood'
 
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
+api = cforgood::APIClient.authorize!('meowmeowmeow')
+api.user.get(<EMAIL>, <PASSWORD>, <PROVIDER>, <UID>)
+```
+
+```javascript
+const cforgood = require('cforgood');
+
+let api = cforgood.authorize('meowmeowmeow');
+let max = api.user.get(<EMAIL>, <PASSWORD>, <PROVIDER>, <UID>);
 ```
 
 > The above command returns JSON structured like this:
@@ -100,90 +86,150 @@ let kittens = api.kittens.get();
 ```json
 [
   {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
+    "id": "",
+    "token": "",
+    "first_name": "",
+    "last_name": "",
+    "member": "",
+    "trial_done": ""
   }
 ]
 ```
 
-This endpoint retrieves all kittens.
+This endpoint retrieves a specific user.
+
+<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+
+### HTTPS Request
+
+`GET https://app.cforgood.com/api/v1/user/email=<EMAIL>&password=<PASSWORD>&provider=<PROVIDER>&uid=<UID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+EMAIL | The EMAIL of the user to retrieve
+PASSWORD | The PASSWORD of the user to retrieve
+PROVIDER | Facebook
+UID | Token return by facebook
+
+
+
+# Businesses
+
+Businesses is a simple API allowing user to view businesses ans perks.
+
+## Get All Businesses
+
+```ruby
+require 'cforgood'
+
+api = cforgood::APIClient.authorize!('meowmeowmeow')
+api.businesses.get
+```
+
+```shell
+curl "https://app.cforgood.com/api/v1/businesses"
+  -H "Authorization: meowmeowmeow"
+```
+
+```javascript
+const cforgood = require('cforgood');
+
+let api = cforgood.authorize('meowmeowmeow');
+let businesses = api.businesses.get();
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "perks": [
+      {
+        "id": 2,
+        "name": ""
+      },
+      {
+        "id": 2,
+        "name": ""
+      }
+    ]
+  {
+    "perks": [
+      {
+        "id": 2,
+        "name": ""
+      },
+      {
+        "id": 2,
+        "name": ""
+      }
+    ]
+  }
+]
+```
+
+This endpoint retrieves all businesses.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`GET https://app.cforgood.com/api/v1/businesses`
 
 ### Query Parameters
 
 Parameter | Default | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+user_member | false | render popup not_member_dashboard
+user_trial_done | true |render popup welcome_memebr_trial (update > trial_done)
+businesses_around | < 0 | render popup o_perks_dashboaard
+uses_without_feedback | > 0 | render form/feedback_dashboard
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+Remember — need authenticated user!
 </aside>
 
-## Get a Specific Kitten
+## Get a Specific business
 
 ```ruby
-require 'kittn'
+require 'cforgood'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
+api = cforgood::APIClient.authorize!('meowmeowmeow')
+api.businesses.get(<ID>)
 ```
 
 ```shell
-curl "http://example.com/api/kittens/2"
+curl "https://app.cforgood.com/api/v1/businesses/<ID>"
   -H "Authorization: meowmeowmeow"
 ```
 
 ```javascript
-const kittn = require('kittn');
+const cforgood = require('cforgood');
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
+let api = cforgood.authorize('meowmeowmeow');
+let max = api.businesses.get(<ID>);
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "id": ,
+  "name": ""
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint retrieves a specific business.
 
 <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`GET https://app.cforgood.com/api/v1/businesses/<ID>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+ID | The ID of the business to retrieve
 

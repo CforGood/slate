@@ -8505,7 +8505,7 @@ jQuery.extend( {
       urlAnchor = document.createElement( "a" );
 
       // Support: IE8-11+
-      // IE throws exception if url is malformed, e.g. http://example.com:80x/
+      // IE throws exception if url is malformed, e.g. https://app.cforgood.com/api/v1:80x/
       try {
         urlAnchor.href = s.url;
 
