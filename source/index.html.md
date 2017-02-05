@@ -21,7 +21,6 @@ search: true
 Welcome to the CforGood API! You can use our API to access CforGood API <endpoints class=""></endpoints>
 
 
-
 # Authentication
 
 > To authorize, use this code:
@@ -48,7 +47,7 @@ let api = cforgood.authorize('meowmeowmeow');
 
 <!-- cforgood uses API keys to allow access to the API. You can register a new cforgood API key at our [developer portal](https://app.cforgood.com/developers). -->
 
-cforgood expects for the API key to be included in all API requests to the server in a header that looks like the following:
+Cforgood expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
 `Authorization: meowmeowmeow`
 
@@ -56,23 +55,10 @@ cforgood expects for the API key to be included in all API requests to the serve
 You must replace <code>meowmeowmeow</code> with your personal API key.
 </aside>
 
-# Login
+# Auth_facebook
 
-Login is an API allowing login user.
+Auth_facebook is an API allowing login user via facebook.
 
-There are two different ways to authenticate when performing API requests:
-
-- E-Mail and password
-- Oauth Access Token
-
-For information:
-
-- user_member | false | render popup not_member_dashboard
-- user_trial_done | true |render popup welcome_memebr_trial (update > trial_done)
-- businesses_around | < 0 | render popup o_perks_dashboaard
-- uses_without_feedback | > 0 | render form/feedback_dashboard
-
-## Login a Specific User via facebook
 
 ```shell
 curl "https://app.cforgood.com/api/v1/auth_facebook/<ACCESS_TOKEN>"
@@ -118,7 +104,10 @@ Parameter | Description
 ACCES_TOKEN | The ACCESS_TOKEN return by Facebook SDK
 
 
-## Login a Specific User via email + password
+# Login
+
+Login is an API allowing login user via email and password.
+
 
 ```shell
 curl "https://app.cforgood.com/api/v1/login/email=<EMAIL>&password=<PASSWORD>""
@@ -168,6 +157,13 @@ PASSWORD | The PASSWORD of the user to retrieve
 # User
 
 User is an API allowing retrieve informations about an user.
+
+For information:
+
+- user_member | false | render popup not_member_dashboard
+- user_trial_done | true |render popup welcome_memebr_trial (update > trial_done)
+- businesses_around | < 0 | render popup o_perks_dashboaard
+- uses_without_feedback | > 0 | render form/feedback_dashboard
 
 
 ## Get a Specific User
@@ -226,16 +222,16 @@ Businesses is a simple API allowing user to view businesses ans perks.
 
 ## Get All Businesses
 
+```shell
+curl "https://app.cforgood.com/api/v1/businesses"
+  -H "Authorization: meowmeowmeow"
+```
+
 ```ruby
 require 'cforgood'
 
 api = cforgood::APIClient.authorize!('meowmeowmeow')
 api.businesses.get
-```
-
-```shell
-curl "https://app.cforgood.com/api/v1/businesses"
-  -H "Authorization: meowmeowmeow"
 ```
 
 ```javascript
@@ -278,16 +274,16 @@ Remember — need authenticated user!
 
 ## Get a Specific business
 
+```shell
+curl "https://app.cforgood.com/api/v1/businesses/<ID>"
+  -H "Authorization: meowmeowmeow"
+```
+
 ```ruby
 require 'cforgood'
 
 api = cforgood::APIClient.authorize!('meowmeowmeow')
 api.businesses.get(<ID>)
-```
-
-```shell
-curl "https://app.cforgood.com/api/v1/businesses/<ID>"
-  -H "Authorization: meowmeowmeow"
 ```
 
 ```javascript
@@ -303,6 +299,7 @@ let max = api.businesses.get(<ID>);
 {
   "id": ,
   "name": ""
+  WIP...
 }
 ```
 
