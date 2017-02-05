@@ -144,7 +144,7 @@ curl <span class="s2">"api_endpoint_here"</span>
 
 <!-- cforgood uses API keys to allow access to the API. You can register a new cforgood API key at our [developer portal](https://app.cforgood.com/developers). -->
 
-<p>cforgood expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<p>Cforgood expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
 
 <p><code class="prettyprint">Authorization: meowmeowmeow</code></p>
 
@@ -152,27 +152,9 @@ curl <span class="s2">"api_endpoint_here"</span>
 You must replace <code>meowmeowmeow</code> with your personal API key.
 </aside>
 
-<h1 id="login">Login</h1>
+<h1 id="auth_facebook">Auth_facebook</h1>
 
-<p>Login is an API allowing login user.</p>
-
-<p>There are two different ways to authenticate when performing API requests:</p>
-
-<ul>
-<li>E-Mail and password</li>
-<li>Oauth Access Token</li>
-</ul>
-
-<p>For information:</p>
-
-<ul>
-<li>user_member | false | render popup not_member_dashboard</li>
-<li>user_trial_done | true |render popup welcome_memebr_trial (update &gt; trial_done)</li>
-<li>businesses_around | &lt; 0 | render popup o_perks_dashboaard</li>
-<li>uses_without_feedback | &gt; 0 | render form/feedback_dashboard</li>
-</ul>
-
-<h2 id="login-a-specific-user-via-facebook">Login a Specific User via facebook</h2>
+<p>Auth_facebook is an API allowing login user via facebook.</p>
 <pre class="highlight shell"><code>curl <span class="s2">"https://app.cforgood.com/api/v1/auth_facebook/&lt;ACCESS_TOKEN&gt;"</span>
   -H <span class="s2">"Authorization: meowmeowmeow"</span>
 </code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'cforgood'</span>
@@ -214,7 +196,9 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </tr>
 </tbody></table>
 
-<h2 id="login-a-specific-user-via-email-password">Login a Specific User via email + password</h2>
+<h1 id="login">Login</h1>
+
+<p>Login is an API allowing login user via email and password.</p>
 <pre class="highlight shell"><code>curl <span class="s2">"https://app.cforgood.com/api/v1/login/email=&lt;EMAIL&gt;&amp;password=&lt;PASSWORD&gt;""
   -H "</span>Authorization: meowmeowmeow<span class="s2">"
 </span></code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'cforgood'</span>
@@ -263,6 +247,15 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <h1 id="user">User</h1>
 
 <p>User is an API allowing retrieve informations about an user.</p>
+
+<p>For information:</p>
+
+<ul>
+<li>user_member | false | render popup not_member_dashboard</li>
+<li>user_trial_done | true |render popup welcome_memebr_trial (update &gt; trial_done)</li>
+<li>businesses_around | &lt; 0 | render popup o_perks_dashboaard</li>
+<li>uses_without_feedback | &gt; 0 | render form/feedback_dashboard</li>
+</ul>
 
 <h2 id="get-a-specific-user">Get a Specific User</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://app.cforgood.com/api/v1/user/&lt;ID&gt;"</span>
@@ -315,12 +308,12 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <p>Businesses is a simple API allowing user to view businesses ans perks.</p>
 
 <h2 id="get-all-businesses">Get All Businesses</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'cforgood'</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://app.cforgood.com/api/v1/businesses"</span>
+  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'cforgood'</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">cforgood</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
 <span class="n">api</span><span class="p">.</span><span class="nf">businesses</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://app.cforgood.com/api/v1/businesses"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
 </code></pre><pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">cforgood</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'cforgood'</span><span class="p">);</span>
 
 <span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">cforgood</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
@@ -362,12 +355,12 @@ Remember — need authenticated user!
 </aside>
 
 <h2 id="get-a-specific-business">Get a Specific business</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'cforgood'</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://app.cforgood.com/api/v1/businesses/&lt;ID&gt;"</span>
+  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'cforgood'</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">cforgood</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
 <span class="n">api</span><span class="p">.</span><span class="nf">businesses</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="o">&lt;</span><span class="no">ID</span><span class="o">&gt;</span><span class="p">)</span>
-</code></pre><pre class="highlight shell"><code>curl <span class="s2">"https://app.cforgood.com/api/v1/businesses/&lt;ID&gt;"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
 </code></pre><pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">cforgood</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'cforgood'</span><span class="p">);</span>
 
 <span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">cforgood</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
@@ -379,6 +372,7 @@ Remember — need authenticated user!
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="err">WIP...</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific business.</p>
@@ -407,7 +401,7 @@ Remember — need authenticated user!
 
 <aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
 
-<p>The Kittn API uses the following error codes:</p>
+<p>The Cforgood API uses the following error codes:</p>
 
 <table><thead>
 <tr>
@@ -425,15 +419,15 @@ Remember — need authenticated user!
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
+<td>Forbidden &ndash; The resource requested is hidden for administrators only</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found &ndash; The specified kitten could not be found</td>
+<td>Not Found &ndash; The specified resource could not be found</td>
 </tr>
 <tr>
 <td>405</td>
-<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
+<td>Method Not Allowed &ndash; You tried to access API with an invalid method</td>
 </tr>
 <tr>
 <td>406</td>
@@ -441,7 +435,7 @@ Remember — need authenticated user!
 </tr>
 <tr>
 <td>410</td>
-<td>Gone &ndash; The kitten requested has been removed from our servers</td>
+<td>Gone &ndash; The resource requested has been removed from our servers</td>
 </tr>
 <tr>
 <td>418</td>
@@ -449,7 +443,7 @@ Remember — need authenticated user!
 </tr>
 <tr>
 <td>429</td>
-<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slow down!</td>
+<td>Too Many Requests &ndash; You&rsquo;re requesting too many resources! Slow down!</td>
 </tr>
 <tr>
 <td>500</td>
