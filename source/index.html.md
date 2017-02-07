@@ -1,13 +1,7 @@
 ---
 title: API Reference
 
-language_tabs:
-  - shell
-  - ruby
-  - javascript
-
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
@@ -23,135 +17,49 @@ Welcome to the CforGood API! You can use our API to access CforGood API <endpoin
 
 # Authentication
 
-> To authorize, use this code:
 
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
+Cforgood expects to be included in all API requests to the server in a header the email and token that looks like the following:
 
-```ruby
-require 'cforgood'
-
-api = Cforgood::APIClient.authorize!('meowmeowmeow')
-```
-
-```javascript
-const cforgood = require('cforgood');
-
-let api = cforgood.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-<!-- cforgood uses API keys to allow access to the API. You can register a new cforgood API key at our [developer portal](https://app.cforgood.com/developers). -->
-
-Cforgood expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-# Auth_facebook
-
-Auth_facebook is an API allowing login user via facebook.
-
-
-```shell
-curl "https://app.cforgood.com/api/v1/auth_facebook/<ACCESS_TOKEN>"
-  -H "Authorization: meowmeowmeow"
-```
-
-```ruby
-require 'cforgood'
-
-api = cforgood::APIClient.authorize!('meowmeowmeow')
-api.auth_facebook.get(<ACCESS_TOKEN>)
-```
-
-```javascript
-const cforgood = require('cforgood');
-
-let api = cforgood.authorize('meowmeowmeow');
-let max = api.auth_facebook.get(<ACCESS_TOKEN>);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": "",
-    "token": ""
-  }
-]
-```
-
-This endpoint retrieves a specific user.
-
-
-### HTTPS Request
-
-`GET https://app.cforgood.com/api/v1/auth_facebook/<ACCESS_TOKEN>`
-
-### URL Parameters
+### Request headers
 
 Parameter | Description
 --------- | -----------
-ACCES_TOKEN | The ACCESS_TOKEN return by Facebook SDK
+X-User-Email | "allan@cforgood.com"
+X-User-Token | "1G8_s7P-V-4MGojaKD7a"
 
 
-# Login
+# Signin
 
-Login is an API allowing login user via email and password.
+Signin is an API allowing signin user via email and password or facebook access_token.
 
-
-```shell
-curl "https://app.cforgood.com/api/v1/login/email=<EMAIL>&password=<PASSWORD>""
-  -H "Authorization: meowmeowmeow"
-```
-
-```ruby
-require 'cforgood'
-
-api = cforgood::APIClient.authorize!('meowmeowmeow')
-api.login.get(<EMAIL>, <PASSWORD>)
-```
-
-```javascript
-const cforgood = require('cforgood');
-
-let api = cforgood.authorize('meowmeowmeow');
-let max = api.login.get(<EMAIL>, <PASSWORD>);
-```
-
-> The above command returns JSON structured like this:
+> Response JSON structured like this:
 
 ```json
-[
-  {
-    "id": "",
-    "token": ""
-  }
-]
+{
+  "id": "2",
+  "authentication_token": "ARIDO3557Z0Z0Z"
+}
 ```
-
-This endpoint retrieves a specific user.
-
 
 ### HTTPS Request
 
-`GET https://app.cforgood.com/api/v1/login/email=<EMAIL>&password=<PASSWORD>`
+`POST https://app.cforgood.com/api/v1/signin`
 
-### URL Parameters
+
+### Request headers
 
 Parameter | Description
 --------- | -----------
-EMAIL | The EMAIL of the user to retrieve
-PASSWORD | The PASSWORD of the user to retrieve
+email | "allan@cforgood.com"
+password | "mot de passe"
+access_token | "uid facebbok"
+
+
+`password` or `access_token` are optional but one of both is mandatory.
+
+If user never signin via facebook, the API return an error `402` to signin once via facebook on the web app.
+
+This endpoint signin a specific user.
 
 
 # User
@@ -160,86 +68,99 @@ User is an API allowing retrieve informations about an user.
 
 For information:
 
-- user_member | false | render popup not_member_dashboard
-- user_trial_done | true |render popup welcome_memebr_trial (update > trial_done)
-- businesses_around | < 0 | render popup o_perks_dashboaard
-- uses_without_feedback | > 0 | render form/feedback_dashboard
-
+- user_member = false -> popup not_member_dashboard
+- user_trial_done = true -> popup welcome_member_trial
+- businesses_around < 0 -> popup o_perks_dashboaard
+- uses_without_feedback present(s) -> form feedback_dashboard
 
 ## Get a Specific User
-
-```shell
-curl "https://app.cforgood.com/api/v1/user/<ID>"
-  -H "Authorization: meowmeowmeow"
-```
-
-```ruby
-require 'cforgood'
-
-api = cforgood::APIClient.authorize!('meowmeowmeow')
-api.user.get(<ID>)
-```
-
-```javascript
-const cforgood = require('cforgood');
-
-let api = cforgood.authorize('meowmeowmeow');
-let max = api.user.get(<ID>);
-```
 
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": "",
-    "first_name": "",
-    "last_name": "",
-    "name": "",
-    "member": "",
-    "trial_done": ""
-  }
-]
+{
+  "id": "2",
+  "first_name": "Allan",
+  "last_name": "Cforgood",
+  "name": "Allan Cforgood",
+  "member": "true",
+  "trial_done": "false",
+  "uses": [
+    {
+      "id": "10",
+      "perk_name": "Un cookie offert",
+      "business_name": "Label Terre",
+      "created_at": "Mon, 06 Feb 2017 10:27:36 CET +01:00"
+    },
+     {
+      "id": "11",
+      "perk_name": "1 ATELIER POUR 1 MINI-POTAGER :-)",
+      "business_name": "Nature et potager en ville",
+      "created_at": "Mon, 02 Feb 2017 17:20:02 CET +01:00"
+    }
+  ]
+}
 ```
 
 This endpoint retrieves a specific user.
 
+If perk uses without feedback (like, unlike or unused) present, they are return also.
+
 
 ### HTTPS Request
 
-`GET https://app.cforgood.com/api/v1/user/<ID>`
+`GET https://app.cforgood.com/api/v1/user/2`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the user to retrieve
+id | The id of the user to retrieve
+
+<aside class="success">
+Remember — need authenticated user!
+</aside>
+
+# Use
+
+Use is an API allowing update feedback of use.
+
+
+## Patch a Specific Use
+
+> No specific return
+
+
+This endpoint updates a specific use.
+
+
+### HTTPS Request
+
+`Patch https://app.cforgood.com/api/v1/use/2/`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | The id of the use to update
+like | True (optional)
+unlike | True (optional)
+unused | True (optional)
+
+Once of the optional feedback is mandatory.
+
+
+<aside class="success">
+Remember — need authenticated user!
+</aside>
 
 
 # Businesses
 
-Businesses is a simple API allowing user to view businesses ans perks.
+Businesses is a simple API allowing retrieve some businesses.
 
-## Get All Businesses
+## Get Some Businesses
 
-```shell
-curl "https://app.cforgood.com/api/v1/businesses"
-  -H "Authorization: meowmeowmeow"
-```
-
-```ruby
-require 'cforgood'
-
-api = cforgood::APIClient.authorize!('meowmeowmeow')
-api.businesses.get
-```
-
-```javascript
-const cforgood = require('cforgood');
-
-let api = cforgood.authorize('meowmeowmeow');
-let businesses = api.businesses.get();
-```
 
 > The above command returns JSON structured like this:
 
@@ -247,12 +168,37 @@ let businesses = api.businesses.get();
 [
   {
     "id": 2,
-    "name": ""
+    "name": "Label Terre",
+    "picture": "http://...",
+    "category": "Bar et restaurant",
+    "address":
+    [
+      {
+        "id": "2",
+        "latitude": ,
+        "longitude":
+      },
+      {
+        "id": "3",
+        "latitude": ,
+        "longitude":
+      }
+    ]
   },
   {
-    "id": 2,
-    "name": ""
-  }
+    "id": 3,
+    "name": "Nature et potager en ville",
+    "picture": "http://...",
+    "category": "Maison et jardin",
+    "address":
+    [
+      {
+        "id": "3",
+        "latitude": ,
+        "longitude":
+      }
+    ]
+  },
 ]
 ```
 
@@ -260,13 +206,14 @@ This endpoint retrieves all businesses.
 
 ### HTTP Request
 
-`GET https://app.cforgood.com/api/v1/businesses`
+`GET https://app.cforgood.com/api/v1/businesses?online=true`
 
-### Query Parameters
+### URL Parameters
 
 Parameter | Default | Description
 --------- | ------- | -----------
-
+Online | true | true : online businesses are return
+ | | false : only shop and itinerant businesses are selected
 
 <aside class="success">
 Remember — need authenticated user!
@@ -274,24 +221,6 @@ Remember — need authenticated user!
 
 ## Get a Specific business
 
-```shell
-curl "https://app.cforgood.com/api/v1/businesses/<ID>"
-  -H "Authorization: meowmeowmeow"
-```
-
-```ruby
-require 'cforgood'
-
-api = cforgood::APIClient.authorize!('meowmeowmeow')
-api.businesses.get(<ID>)
-```
-
-```javascript
-const cforgood = require('cforgood');
-
-let api = cforgood.authorize('meowmeowmeow');
-let max = api.businesses.get(<ID>);
-```
 
 > The above command returns JSON structured like this:
 
@@ -299,7 +228,6 @@ let max = api.businesses.get(<ID>);
 {
   "id": ,
   "name": ""
-  WIP...
 }
 ```
 

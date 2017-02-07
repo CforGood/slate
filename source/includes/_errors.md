@@ -7,8 +7,9 @@ The Cforgood API uses the following error codes:
 
 Error Code | Meaning
 ---------- | -------
-400 | Bad Request -- Your request sucks
-401 | Unauthorized -- Your API key is wrong
+400 | Bad Request
+401 | Unauthorized -- Your API header parameters are wrong
+402 | Unauthorized -- User should signin before with facebook on Web app
 403 | Forbidden -- The resource requested is hidden for administrators only
 404 | Not Found -- The specified resource could not be found
 405 | Method Not Allowed -- You tried to access API with an invalid method
