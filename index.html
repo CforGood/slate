@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>CforGood API Reference</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -91,7 +91,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -100,11 +100,6 @@
     </a>
     <div class="tocify-wrapper">
       <img src="images/logo.png" alt="Logo" />
-        <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="javascript">javascript</a>
-        </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
@@ -112,7 +107,6 @@
       <div id="toc">
       </div>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
             <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
@@ -121,68 +115,13 @@
       <div class="content">
         <h1 id="introduction">Introduction</h1>
 
-<p>Welcome to the CforGood API! You can use our API to access CforGood API <endpoints class=""></endpoints></p>
+<p>Welcome to the CforGood API! You can use our API to access CforGood API <endpoints class=""> tarata</endpoints></p>
 
 <h1 id="authentication">Authentication</h1>
 
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'cforgood'</span>
+<p>Cforgood expects to be included in all API requests to the server in a header the email and token that looks like the following:</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Cforgood</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">cforgood</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'cforgood'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">cforgood</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
-</blockquote>
-
-<!-- cforgood uses API keys to allow access to the API. You can register a new cforgood API key at our [developer portal](https://app.cforgood.com/developers). -->
-
-<p>Cforgood expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code class="prettyprint">Authorization: meowmeowmeow</code></p>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-<h1 id="auth_facebook">Auth_facebook</h1>
-
-<p>Auth_facebook is an API allowing login user via facebook.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://app.cforgood.com/api/v1/auth_facebook/&lt;ACCESS_TOKEN&gt;"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'cforgood'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">cforgood</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">auth_facebook</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="o">&lt;</span><span class="no">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">)</span>
-</code></pre><pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">cforgood</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'cforgood'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">cforgood</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">auth_facebook</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">ACCESS_TOKEN</span><span class="o">&gt;</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves a specific user.</p>
-
-<h3 id="https-request">HTTPS Request</h3>
-
-<p><code class="prettyprint">GET https://app.cforgood.com/api/v1/auth_facebook/&lt;ACCESS_TOKEN&gt;</code></p>
-
-<h3 id="url-parameters">URL Parameters</h3>
+<h3 id="request-headers">Request headers</h3>
 
 <table><thead>
 <tr>
@@ -191,42 +130,32 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </tr>
 </thead><tbody>
 <tr>
-<td>ACCES_TOKEN</td>
-<td>The ACCESS_TOKEN return by Facebook SDK</td>
+<td>X-User-Email</td>
+<td>&ldquo;allan@cforgood.com&rdquo;</td>
+</tr>
+<tr>
+<td>X-User-Token</td>
+<td>&ldquo;1G8_s7P-V-4MGojaKD7a&rdquo;</td>
 </tr>
 </tbody></table>
 
-<h1 id="login">Login</h1>
+<h1 id="signin">Signin</h1>
 
-<p>Login is an API allowing login user via email and password.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://app.cforgood.com/api/v1/login/email=&lt;EMAIL&gt;&amp;password=&lt;PASSWORD&gt;""
-  -H "</span>Authorization: meowmeowmeow<span class="s2">"
-</span></code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'cforgood'</span>
+<p>Signin is an API allowing signin user via email and password or facebook access_token.</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">cforgood</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">login</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="o">&lt;</span><span class="no">EMAIL</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="no">PASSWORD</span><span class="o">&gt;</span><span class="p">)</span>
-</code></pre><pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">cforgood</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'cforgood'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">cforgood</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">login</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">EMAIL</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="nx">PASSWORD</span><span class="o">&gt;</span><span class="p">);</span>
-</code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Response JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"authentication_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ARIDO3557Z0Z0Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific user.</p>
-
 <h3 id="https-request">HTTPS Request</h3>
 
-<p><code class="prettyprint">GET https://app.cforgood.com/api/v1/login/email=&lt;EMAIL&gt;&amp;password=&lt;PASSWORD&gt;</code></p>
+<p><code class="prettyprint">POST https://app.cforgood.com/api/v1/signin</code></p>
 
-<h3 id="url-parameters">URL Parameters</h3>
+<h3 id="request-headers">Request headers</h3>
 
 <table><thead>
 <tr>
@@ -235,14 +164,24 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </tr>
 </thead><tbody>
 <tr>
-<td>EMAIL</td>
-<td>The EMAIL of the user to retrieve</td>
+<td>email</td>
+<td>&ldquo;allan@cforgood.com&rdquo;</td>
 </tr>
 <tr>
-<td>PASSWORD</td>
-<td>The PASSWORD of the user to retrieve</td>
+<td>password</td>
+<td>&ldquo;mot de passe&rdquo;</td>
+</tr>
+<tr>
+<td>access_token</td>
+<td>&ldquo;uid facebbok&rdquo;</td>
 </tr>
 </tbody></table>
+
+<p><code class="prettyprint">password</code> or <code class="prettyprint">access_token</code> are optional but one of both is mandatory.</p>
+
+<p>If user never signin via facebook, the API return an error <code class="prettyprint">402</code> to signin once via facebook on the web app.</p>
+
+<p>This endpoint signin a specific user.</p>
 
 <h1 id="user">User</h1>
 
@@ -251,43 +190,47 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <p>For information:</p>
 
 <ul>
-<li>user_member | false | render popup not_member_dashboard</li>
-<li>user_trial_done | true |render popup welcome_memebr_trial (update &gt; trial_done)</li>
-<li>businesses_around | &lt; 0 | render popup o_perks_dashboaard</li>
-<li>uses_without_feedback | &gt; 0 | render form/feedback_dashboard</li>
+<li>user_member = false -&gt; popup not_member_dashboard</li>
+<li>user_trial_done = true -&gt; popup welcome_member_trial</li>
+<li>businesses_around &lt; 0 -&gt; popup o_perks_dashboaard</li>
+<li>uses_without_feedback present(s) -&gt; form feedback_dashboard</li>
 </ul>
 
 <h2 id="get-a-specific-user">Get a Specific User</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://app.cforgood.com/api/v1/user/&lt;ID&gt;"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'cforgood'</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">cforgood</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">user</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="o">&lt;</span><span class="no">ID</span><span class="o">&gt;</span><span class="p">)</span>
-</code></pre><pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">cforgood</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'cforgood'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">cforgood</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">ID</span><span class="o">&gt;</span><span class="p">);</span>
-</code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"member"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"trial_done"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allan"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cforgood"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allan Cforgood"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"member"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"trial_done"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"uses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"perk_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Un cookie offert"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"business_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Label Terre"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon, 06 Feb 2017 10:27:36 CET +01:00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+     </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"perk_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 ATELIER POUR 1 MINI-POTAGER :-)"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"business_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nature et potager en ville"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon, 02 Feb 2017 17:20:02 CET +01:00"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific user.</p>
 
+<p>If perk uses without feedback (like, unlike or unused) present, they are return also.</p>
+
 <h3 id="https-request">HTTPS Request</h3>
 
-<p><code class="prettyprint">GET https://app.cforgood.com/api/v1/user/&lt;ID&gt;</code></p>
+<p><code class="prettyprint">GET https://app.cforgood.com/api/v1/user/2</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -298,48 +241,115 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the user to retrieve</td>
+<td>id</td>
+<td>The id of the user to retrieve</td>
 </tr>
 </tbody></table>
 
+<aside class="success">
+Remember — need authenticated user!
+</aside>
+
+<h1 id="use">Use</h1>
+
+<p>Use is an API allowing update feedback of use.</p>
+
+<h2 id="patch-a-specific-use">Patch a Specific Use</h2>
+
+<blockquote>
+<p>No specific return</p>
+</blockquote>
+
+<p>This endpoint updates a specific use.</p>
+
+<h3 id="https-request">HTTPS Request</h3>
+
+<p><code class="prettyprint">Patch https://app.cforgood.com/api/v1/use/2/</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The id of the use to update</td>
+</tr>
+<tr>
+<td>like</td>
+<td>True (optional)</td>
+</tr>
+<tr>
+<td>unlike</td>
+<td>True (optional)</td>
+</tr>
+<tr>
+<td>unused</td>
+<td>True (optional)</td>
+</tr>
+</tbody></table>
+
+<p>Once of the optional feedback is mandatory.</p>
+
+<aside class="success">
+Remember — need authenticated user!
+</aside>
+
 <h1 id="businesses">Businesses</h1>
 
-<p>Businesses is a simple API allowing user to view businesses ans perks.</p>
+<p>Businesses is a simple API allowing retrieve some businesses.</p>
 
-<h2 id="get-all-businesses">Get All Businesses</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://app.cforgood.com/api/v1/businesses"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'cforgood'</span>
+<h2 id="get-some-businesses">Get Some Businesses</h2>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">cforgood</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">businesses</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">cforgood</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'cforgood'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">cforgood</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">businesses</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">businesses</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
-</code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Label Terre"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"picture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://..."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bar et restaurant"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"address"</span><span class="p">:</span><span class="w">
+    </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+        </span><span class="nt">"longitude"</span><span class="p">:</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+        </span><span class="nt">"longitude"</span><span class="p">:</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nature et potager en ville"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"picture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://..."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Maison et jardin"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"address"</span><span class="p">:</span><span class="w">
+    </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
+        </span><span class="nt">"longitude"</span><span class="p">:</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all businesses.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://app.cforgood.com/api/v1/businesses</code></p>
+<p><code class="prettyprint">GET https://app.cforgood.com/api/v1/businesses?online=true</code></p>
 
-<h3 id="query-parameters">Query Parameters</h3>
+<h3 id="url-parameters">URL Parameters</h3>
 
 <table><thead>
 <tr>
@@ -348,6 +358,16 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>Online</td>
+<td>true</td>
+<td>true : online businesses are return</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>false : only shop and itinerant businesses are selected</td>
+</tr>
 </tbody></table>
 
 <aside class="success">
@@ -355,24 +375,13 @@ Remember — need authenticated user!
 </aside>
 
 <h2 id="get-a-specific-business">Get a Specific business</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://app.cforgood.com/api/v1/businesses/&lt;ID&gt;"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'cforgood'</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">cforgood</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">businesses</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="o">&lt;</span><span class="no">ID</span><span class="o">&gt;</span><span class="p">)</span>
-</code></pre><pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">cforgood</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'cforgood'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">cforgood</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">businesses</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">ID</span><span class="o">&gt;</span><span class="p">);</span>
-</code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-  </span><span class="err">WIP...</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific business.</p>
@@ -411,11 +420,15 @@ Remember — need authenticated user!
 </thead><tbody>
 <tr>
 <td>400</td>
-<td>Bad Request &ndash; Your request sucks</td>
+<td>Bad Request</td>
 </tr>
 <tr>
 <td>401</td>
-<td>Unauthorized &ndash; Your API key is wrong</td>
+<td>Unauthorized &ndash; Your API header parameters are wrong</td>
+</tr>
+<tr>
+<td>402</td>
+<td>Unauthorized &ndash; User should signin before with facebook on Web app</td>
 </tr>
 <tr>
 <td>403</td>
@@ -457,11 +470,6 @@ Remember — need authenticated user!
 
       </div>
       <div class="dark-box">
-          <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="javascript">javascript</a>
-          </div>
       </div>
     </div>
   </body>
