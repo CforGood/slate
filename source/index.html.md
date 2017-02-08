@@ -151,7 +151,7 @@ This endpoint updates a specific use.
 
 ### HTTPS Request
 
-`Patch https://app.cforgood.com/api/v1/use/2/`
+`Patch https://app.cforgood.com/api/v1/use/2`
 
 ### URL Parameters
 
