@@ -69,9 +69,11 @@ User is an API allowing retrieve informations about an user.
 For information:
 
 - user_member = false -> popup not_member_dashboard
-- user_trial_done = true -> popup welcome_member_trial
-- businesses_around < 0 -> popup o_perks_dashboaard
+- businesses_around < 0 -> popup no_perks_dashboaard
 - uses_without_feedback present(s) -> form feedback_dashboard
+- user_trial_done = true
+  - si code_partner = [GIFT3MONTH, GIFT6MONTH, GIFT12MONTH] -> popup welcome_member_trial_gift
+  - sinon -> popup welcome_member_trial
 
 ## Get a Specific User
 
@@ -83,8 +85,21 @@ For information:
   "first_name": "Allan",
   "last_name": "Cforgood",
   "name": "Allan Cforgood",
+  "picture": "https://...",
   "member": "true",
   "trial_done": "false",
+  "trial_attributes":
+    {
+      "date_end_partner": "Mon, 06 Jun 2017 10:27:36 CET +01:00",
+      "partner_name": "Cforgood"
+    },
+  "gift_attributes":
+    {
+      "code_partner": "GIFT3MONTH",
+      "user_offering_first_name": "Mathilde",
+      "user_offering_last_name": "Cforgood",
+      "nb_month_beneficiary": "3"
+    },
   "uses": [
     {
       "id": "10",
@@ -157,7 +172,7 @@ Remember — need authenticated user!
 
 # Businesses
 
-Businesses is a simple API allowing retrieve some businesses.
+Businesses is an API allowing retrieve some businesses.
 
 ## Get Some Businesses
 
@@ -170,8 +185,10 @@ Businesses is a simple API allowing retrieve some businesses.
     "id": 2,
     "name": "Label Terre",
     "picture": "http://...",
-    "category": "Bar et restaurant",
-    "address":
+    "category_id": 9,
+    "nb_perks": 2,
+    "like": 63,
+    "addresses":
     [
       {
         "id": "2",
@@ -189,8 +206,8 @@ Businesses is a simple API allowing retrieve some businesses.
     "id": 3,
     "name": "Nature et potager en ville",
     "picture": "http://...",
-    "category": "Maison et jardin",
-    "address":
+    "category_id": 7,
+    "addresses":
     [
       {
         "id": "3",
@@ -202,7 +219,7 @@ Businesses is a simple API allowing retrieve some businesses.
 ]
 ```
 
-This endpoint retrieves all businesses.
+This endpoint retrieves businesses with online shop or bot.
 
 ### HTTP Request
 
@@ -212,7 +229,7 @@ This endpoint retrieves all businesses.
 
 Parameter | Default | Description
 --------- | ------- | -----------
-Online | true | true : online businesses are return
+Online | false | true : online businesses are return
  | | false : only shop and itinerant businesses are selected
 
 <aside class="success">
