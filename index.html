@@ -115,7 +115,7 @@
       <div class="content">
         <h1 id="introduction">Introduction</h1>
 
-<p>Welcome to the CforGood API! You can use our API to access CforGood API <endpoints class=""> tarata</endpoints></p>
+<p>Welcome to the CforGood API! You can use our API to access CforGood API <endpoints class=""></endpoints></p>
 
 <h1 id="authentication">Authentication</h1>
 
@@ -191,9 +191,14 @@
 
 <ul>
 <li>user_member = false -&gt; popup not_member_dashboard</li>
-<li>user_trial_done = true -&gt; popup welcome_member_trial</li>
-<li>businesses_around &lt; 0 -&gt; popup o_perks_dashboaard</li>
+<li>businesses_around &lt; 0 -&gt; popup no_perks_dashboaard</li>
 <li>uses_without_feedback present(s) -&gt; form feedback_dashboard</li>
+<li>user_trial_done = true
+
+<ul>
+<li>si code_partner = [GIFT3MONTH, GIFT6MONTH, GIFT12MONTH] -&gt; popup welcome_member_trial_gift</li>
+<li>sinon -&gt; popup welcome_member_trial</li>
+</ul></li>
 </ul>
 
 <h2 id="get-a-specific-user">Get a Specific User</h2>
@@ -206,8 +211,21 @@
   </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allan"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cforgood"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allan Cforgood"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"picture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://..."</span><span class="p">,</span><span class="w">
   </span><span class="nt">"member"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"trial_done"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"trial_attributes"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"date_end_partner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon, 06 Jun 2017 10:27:36 CET +01:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"partner_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cforgood"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"gift_attributes"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"code_partner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GIFT3MONTH"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_offering_first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mathilde"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_offering_last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cforgood"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"nb_month_beneficiary"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
   </span><span class="nt">"uses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
@@ -300,7 +318,7 @@ Remember — need authenticated user!
 
 <h1 id="businesses">Businesses</h1>
 
-<p>Businesses is a simple API allowing retrieve some businesses.</p>
+<p>Businesses is an API allowing retrieve some businesses.</p>
 
 <h2 id="get-some-businesses">Get Some Businesses</h2>
 
@@ -312,8 +330,10 @@ Remember — need authenticated user!
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Label Terre"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"picture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://..."</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bar et restaurant"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"address"</span><span class="p">:</span><span class="w">
+    </span><span class="nt">"category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"nb_perks"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"like"</span><span class="p">:</span><span class="w"> </span><span class="mi">63</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"addresses"</span><span class="p">:</span><span class="w">
     </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
@@ -331,8 +351,8 @@ Remember — need authenticated user!
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nature et potager en ville"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"picture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://..."</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Maison et jardin"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"address"</span><span class="p">:</span><span class="w">
+    </span><span class="nt">"category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"addresses"</span><span class="p">:</span><span class="w">
     </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
@@ -343,7 +363,7 @@ Remember — need authenticated user!
   </span><span class="p">},</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all businesses.</p>
+<p>This endpoint retrieves businesses with online shop or bot.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -360,7 +380,7 @@ Remember — need authenticated user!
 </thead><tbody>
 <tr>
 <td>Online</td>
-<td>true</td>
+<td>false</td>
 <td>true : online businesses are return</td>
 </tr>
 <tr>
