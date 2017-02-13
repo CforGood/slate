@@ -36,7 +36,7 @@ Signin is an API allowing signin user via email and password or facebook access_
 
 ```json
 {
-  "id": "2",
+  "id": 2,
   "authentication_token": "ARIDO3557Z0Z0Z"
 }
 ```
@@ -81,13 +81,13 @@ For information:
 
 ```json
 {
-  "id": "2",
+  "id": 2,
   "first_name": "Allan",
   "last_name": "Cforgood",
   "name": "Allan Cforgood",
   "picture": "https://...",
-  "member": "true",
-  "trial_done": "false",
+  "member": true,
+  "trial_done": false,
   "trial_attributes":
     {
       "date_end_partner": "Mon, 06 Jun 2017 10:27:36 CET +01:00",
@@ -98,17 +98,17 @@ For information:
       "code_partner": "GIFT3MONTH",
       "user_offering_first_name": "Mathilde",
       "user_offering_last_name": "Cforgood",
-      "nb_month_beneficiary": "3"
+      "nb_month_beneficiary": 3
     },
-  "uses": [
+  "uses_without_feedback": [
     {
-      "id": "10",
+      "id": 10,
       "perk_name": "Un cookie offert",
       "business_name": "Label Terre",
       "created_at": "Mon, 06 Feb 2017 10:27:36 CET +01:00"
     },
      {
-      "id": "11",
+      "id": 11,
       "perk_name": "1 ATELIER POUR 1 MINI-POTAGER :-)",
       "business_name": "Nature et potager en ville",
       "created_at": "Mon, 02 Feb 2017 17:20:02 CET +01:00"
@@ -124,17 +124,18 @@ If perk uses without feedback (like, unlike or unused) present, they are return 
 
 ### HTTPS Request
 
-`GET https://app.cforgood.com/api/v1/user/2`
+`GET https://app.cforgood.com/api/v1/user/{id}`
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-id | The id of the user to retrieve
+Parameter | Format | Description
+--------- | ------ |-----------
+id | integer |The of the user to retrieve
 
 <aside class="success">
 Remember — need authenticated user!
 </aside>
+
 
 # Use
 
@@ -143,7 +144,14 @@ Use is an API allowing update feedback of use.
 
 ## Patch a Specific Use
 
-> No specific return
+> Request
+
+```json
+  {
+    "id": 2,
+    "feedback": "like"
+  }
+```
 
 
 This endpoint updates a specific use.
@@ -151,19 +159,16 @@ This endpoint updates a specific use.
 
 ### HTTPS Request
 
-`Patch https://app.cforgood.com/api/v1/use/2`
+`Patch https://app.cforgood.com/api/v1/use`
 
-### URL Parameters
+### Parameters
 
-Parameter | Description
---------- | -----------
-id | The id of the use to update
-like | True (optional)
-unlike | True (optional)
-unused | True (optional)
+Parameter | Format | Description
+--------- | ------ | -----------
+id | interger |The id of the use to update
+feedback | string | like/unlike/unused
 
 Once of the optional feedback is mandatory.
-
 
 <aside class="success">
 Remember — need authenticated user!
@@ -172,7 +177,7 @@ Remember — need authenticated user!
 
 # Businesses
 
-Businesses is an API allowing retrieve some businesses.
+Businesses is an API allowing retrieve some businesses with their addresses and perks.
 
 ## Get Some Businesses
 
@@ -186,19 +191,28 @@ Businesses is an API allowing retrieve some businesses.
     "name": "Label Terre",
     "picture": "http://...",
     "category_id": 9,
-    "nb_perks": 2,
     "like": 63,
     "addresses":
     [
       {
-        "id": "2",
-        "latitude": ,
-        "longitude":
+        "i":2,
+        "latitude": 44.8420852,
+        "longitude": -0.5824325
       },
       {
-        "id": "3",
-        "latitude": ,
-        "longitude":
+        "i":3,
+        "latitude": 44.8420852,
+        "longitude": -0.5824325
+      }
+    ],
+    "perks":
+    [
+      {
+        "id": 10,
+        "name": "Un cookie offert",
+        "flash": false,
+        "picture": "https://res.cloudinary.com/dktivbech/image/upload/v1468850769/production/webo2yeqaojpin7jgkpt.jpg",
+        "offer": "Offert"
       }
     ]
   },
@@ -207,15 +221,40 @@ Businesses is an API allowing retrieve some businesses.
     "name": "Nature et potager en ville",
     "picture": "http://...",
     "category_id": 7,
+    "like": 22,
     "addresses":
     [
       {
-        "id": "3",
-        "latitude": ,
-        "longitude":
+        "id": 4,
+        "latitude": 44.8420852,
+        "longitude": -0.5824325
+      }
+    ],
+    "perks":
+    [
+      {
+        "id": 64,
+        "name": "1 atelier pour 1 mini-potager :-)",
+        "flash": false,
+        "picture": "",
+        "offer": "Offert"
+      },
+      {
+        "id": 65,
+        "name": "-50% ATELIER CRéATION MINI-POTAGER☻",
+        "flash": false,
+        "picture": "https://res.cloudinary.com/dktivbech/image/upload/v1468850748/production/ojbmbpjvq6nk57xfk7gj.jpg",
+        "offer": "-50%"
+      },
+      {
+        "id": 66,
+        "name": "Qu'est ce qu'on S'ÈME !",
+        "flash": false,
+        "picture": "https://res.cloudinary.com/dktivbech/image/upload/v1468850767/production/xzgcgy3rdaothu2okcjt.jpg",
+        "offer": "-10%"
       }
     ]
-  },
+  }
 ]
 ```
 
@@ -229,36 +268,139 @@ This endpoint retrieves businesses with online shop or bot.
 
 Parameter | Default | Description
 --------- | ------- | -----------
-Online | false | true : online businesses are return
+online | false | true : online businesses are return
  | | false : only shop and itinerant businesses are selected
 
 <aside class="success">
 Remember — need authenticated user!
 </aside>
 
-## Get a Specific business
+## Get a Specific Business
 
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": ,
-  "name": ""
+  "id": 36,
+  "name": "Nature et potager en ville",
+  "url": "http://www.natureetpotagerenville.fr/",
+  "telephone": "0 609 725 765",
+  "email": "contact@natureetpotagerenville.fr",
+  "description": "Cultivez la biodiversité en ville en jardinant 100% éco-responsable ! Aménagements comestibles & Agriculture urbaine Mini-potagers - Semences bio - Arrosage économe&autonome - Vermicompost - Sac de culture en géotextile ",
+  "business_category_id": 5,
+  "facebook"  : "natureetpotagerenville/?fref=ts",
+  "twitter": "",
+  "instagram": "",
+  "leader_first_name": "Marie-Dominique",
+  "leader_last_name": "Pivetaud",
+  "leader_description": "",
+  "online": false,
+  "shop": true,
+  "itinerant": true,
+  "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1468850474/production/aysgflagktkv5hk0j1jv.jpg",
+  "leader_picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_100,w_100/v1468850578/production/x3xbk1elnn8po8uge97z.jpg",
+  "like": 0,
+  "unlike": 0,
+  "link_video": null,
+  "addresses": {
+    "id": 4,
+    "street": "87, quai des Queyries",
+    "zipcode": "33000",
+    "city": "Bordeaux",
+    "latitude": 44.8420852,
+    "longitude": -0.5824325
+  },
+  "perks":
+  [
+    {
+      "id": 64,
+      "name": " 1 atelier pour 1 mini-potager :-)",
+      "description": "Parmi 4 formats on vous offre une réduction proportionnelle sur 1 atelier de jardinage de 50€: Format 12L - 20% de réduc, Format 19L -30% de réduc, Format 26L -40% de réduc et Format 41L -50% de réduc ",
+      "times": 0,
+      "start_date": null,
+      "end_date": null,
+      "active": false,
+      "perk_code": "UBDQ3",
+      "nb_views": 1,
+      "appel": true,
+      "durable": false,
+      "flash": false,
+      "perk_detail_id": 2,
+      "all_day": false,
+      "picture": "",
+      "offer": "Offert"
+    },
+    {
+      "id": 63,
+      "name": "-50% ATELIER CRéATION MINI-POTAGER☻",
+      "description": "Découvrez - Jardinez - Profitez - 50 % sur un atelier de création d'un mini-potager hors-sol Venez créer votre mini écosystème grâce à notre savoir-faire ! Contactez-nous pour nous donner vos disponibilités.",
+      "times": 0,
+      "start_date": null,
+      "end_date": null,
+      "active": true,
+      "perk_code": "DYWI6",
+      "nb_views": 105,
+      "appel": true,
+      "durable": false,
+      "flash": false,
+      "perk_detail_id": 2,
+      "all_day": false,
+      "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1468850748/production/ojbmbpjvq6nk57xfk7gj.jpg",
+      "offer": "-50%"
+    },
+    {
+      "id": 62,
+      "name": "Qu'est ce qu'on S'ÈME !",
+      "business_id": 36,
+      "description": "Préparez votre mini-potager pour l'été ! ☀ - 10 % sur la Mâche, Tournesol Nain Jaune et Tomate Lime Green Présentez votre carte au marché pour en profiter ;-)",
+      "times": 25,
+      "start_date": "2016-03-15T00:00:00+01:00",
+      "end_date": "2016-03-28T23:00:00+02:00",
+      "active": false,
+      "perk_code": "WPOS1",
+      "nb_views": 15,
+      "appel": false,
+      "durable": false,
+      "flash": true,
+      "perk_detail_id": 1,
+      "all_day": false,
+      "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_600,w_800/v1468850767/production/xzgcgy3rdaothu2okcjt.jpg",
+      "offer": "-10%"
+    }
+  ]
 }
 ```
 
-This endpoint retrieves a specific business.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+This endpoint retrieves a specific business with its perks in detail.
 
 ### HTTP Request
 
-`GET https://app.cforgood.com/api/v1/businesses/<ID>`
+`GET https://app.cforgood.com/api/v1/businesses/{id}&address={address_id}`
 
 ### URL Parameters
 
+Parameter | Format | Description
+--------- | ------ | -----------
+id | interger | The id of the business to retrieve
+address_id | integer | The id of the business address
+
+
+
+### Perk Detail
+
+This is the way the park can be used
+
 Parameter | Description
 --------- | -----------
-ID | The ID of the business to retrieve
+1 | Carte : Show member card at the shop
+2 | Email : Send an email
+3 | Online : Connect to the service (websebsite)
+
+
+<aside class="success">
+Remember — need authenticated user!
+</aside>
+
+<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
 
