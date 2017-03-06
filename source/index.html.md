@@ -62,9 +62,9 @@ If user never signin via facebook, the API return an error `402` to signin once 
 This endpoint signin a specific user.
 
 
-# User
+# Users
 
-User is an API allowing retrieve informations about an user.
+Users is an API allowing retrieve informations about an user.
 
 For information:
 
@@ -124,7 +124,7 @@ If perk uses without feedback (like, unlike or unused) present, they are return 
 
 ### HTTPS Request
 
-`GET https://app.cforgood.com/api/v1/user/{id}`
+`GET https://app.cforgood.com/api/v1/users/{id}`
 
 ### URL Parameters
 
@@ -137,9 +137,9 @@ Remember — need authenticated user!
 </aside>
 
 
-# Use
+# Uses
 
-Use is an API allowing update feedback of use.
+Uses is an API allowing update feedback of an use.
 
 
 ## Patch a Specific Use
@@ -159,7 +159,7 @@ This endpoint updates a specific use.
 
 ### HTTPS Request
 
-`Patch https://app.cforgood.com/api/v1/use`
+`Patch https://app.cforgood.com/api/v1/uses`
 
 ### Parameters
 
