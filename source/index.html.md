@@ -235,82 +235,94 @@ Businesses is an API allowing retrieve some businesses with their addresses and 
 ```json
 [
   {
-    "id": 2,
-    "name": "Label Terre",
-    "picture": "http://...",
-    "category_id": 9,
-    "like": 63,
-    "addresses":
-    [
+    "id": 7,
+    "name": "Maison Hegara",
+    "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761830/v66jvtnvzp0cra5apc6u.jpg",
+    "business_category_id": 12,
+    "like": 0,
+    "addresses": [
       {
-        "i":2,
-        "latitude": 44.8420852,
-        "longitude": -0.5824325
-      },
-      {
-        "i":3,
-        "latitude": 44.8420852,
-        "longitude": -0.5824325
+        "id": 27,
+        "latitude": 44.8525244,
+        "longitude": -0.5731832
       }
     ],
-    "perks":
-    [
+    "perks": [
       {
-        "id": 10,
-        "name": "Un cookie offert",
+        "id": 9,
+        "name": "DEUX CONTENANTS OFFERTS ! ",
         "flash": false,
-        "picture": "https://res.cloudinary.com/dktivbech/image/upload/v1468850769/production/webo2yeqaojpin7jgkpt.jpg",
+        "picture": null,
         "offer": "Offert"
       }
     ]
   },
   {
-    "id": 3,
-    "name": "Nature et potager en ville",
-    "picture": "http://...",
-    "category_id": 7,
-    "like": 22,
-    "addresses":
-    [
+    "id": 15,
+    "name": "Koken",
+    "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761875/rulrjfzylc8yxkqsc6r5.jpg",
+    "business_category_id": 13,
+    "like": 0,
+    "addresses": [
       {
-        "id": 4,
-        "latitude": 44.8420852,
-        "longitude": -0.5824325
+        "id": 32,
+        "latitude": 44.8414224,
+        "longitude": -0.5755607
       }
     ],
-    "perks":
-    [
+    "perks": [
       {
-        "id": 64,
-        "name": "1 atelier pour 1 mini-potager :-)",
+        "id": 18,
+        "name": "BIENVENUE! UN KDO éTHIQUE OFFERT...",
         "flash": false,
-        "picture": "",
+        "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761878/sixs97hb7bpio5exlqmk.jpg",
         "offer": "Offert"
       },
       {
-        "id": 65,
-        "name": "-50% ATELIER CRéATION MINI-POTAGER☻",
+        "id": 20,
+        "name": "-15% SUR L'ARTICLE DE VOTRE CHOIX..",
         "flash": false,
-        "picture": "https://res.cloudinary.com/dktivbech/image/upload/v1468850748/production/ojbmbpjvq6nk57xfk7gj.jpg",
-        "offer": "-50%"
+        "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761882/lh3lqeuomsw8crkyidws.jpg",
+        "offer": "Offert"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "INSPIRESELF",
+    "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761809/yfz18ahljkatmdpmsovp.jpg",
+    "business_category_id": 10,
+    "like": 0,
+    "addresses": [
+      {
+        "id": 20,
+        "latitude": 44.839438,
+        "longitude": -0.5803727
       },
       {
-        "id": 66,
-        "name": "Qu'est ce qu'on S'ÈME !",
+        "id": 38,
+        "latitude": 44.8772685,
+        "longitude": -0.554149
+      }
+    ],
+    "perks": [
+      {
+        "id": 4,
+        "name": "25% SUR LE PREMIER PRODUIT ACHETé !",
         "flash": false,
-        "picture": "https://res.cloudinary.com/dktivbech/image/upload/v1468850767/production/xzgcgy3rdaothu2okcjt.jpg",
-        "offer": "-10%"
+        "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761814/lhc1bxpwlliscwth3kma.jpg",
+        "offer": "Offert"
       }
     ]
   }
 ]
 ```
 
-This endpoint retrieves businesses with online shop or bot.
+This endpoint retrieves businesses with online shop or not, in the 10km around.
 
 ### HTTP Request
 
-`GET https://app.cforgood.com/api/v1/businesses?online=true`
+`GET https://app.cforgood.com/api/v1/businesses?online=true&lat={lat}&lng={lng}`
 
 ### URL Parameters
 
@@ -318,6 +330,8 @@ Parameter | Default | Description
 --------- | ------- | -----------
 online | false | true : online businesses are also return
  | | false : only shop and itinerant businesses are selected
+ lat | latitude | latitude of user position or map center
+ lng | longitude | longitude of user position or map center
 
 <aside class="success">
 Remember — need authenticated user!
@@ -330,91 +344,84 @@ Remember — need authenticated user!
 
 ```json
 {
-  "id": 36,
-  "name": "Nature et potager en ville",
-  "url": "http://www.natureetpotagerenville.fr/",
-  "telephone": "0 609 725 765",
-  "email": "contact@natureetpotagerenville.fr",
-  "description": "Cultivez la biodiversité en ville en jardinant 100% éco-responsable ! Aménagements comestibles & Agriculture urbaine Mini-potagers - Semences bio - Arrosage économe&autonome - Vermicompost - Sac de culture en géotextile ",
-  "business_category_id": 5,
-  "facebook"  : "natureetpotagerenville/?fref=ts",
-  "twitter": "",
-  "instagram": "",
-  "leader_first_name": "Marie-Dominique",
-  "leader_last_name": "Pivetaud",
-  "leader_description": "",
-  "online": false,
+  "id": 4,
+  "name": "INSPIRESELF",
+  "url": "http://www.inspireself.org/",
+  "telephone": "+33663075090",
+  "email": "info@inspireself.com",
+  "description": "Nous offrons des produits efficaces, réduisant considérablement les effets nocifs (chaleur, maux de têtes, migraines, baisse d'énergie, perte d'équilibre, manque d'ancrage, stress ) générés par les pollutions éléctromagnétiques des téléphones portables, ordinateurs, box wifi, tablettes, montres connectées, DECT, écoutes -bébés, tv en fait tous appareils émettant des ondes éléctromagnétiques de très hautes ou très basses fréquences....",
+  "business_category_id": 10,
+  "facebook": null,
+  "twitter": null,
+  "instagram": null,
+  "leader_first_name": "Patrice",
+  "leader_last_name": "Buyle",
+  "leader_description": null,
+  "online": true,
   "shop": true,
   "itinerant": true,
-  "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1468850474/production/aysgflagktkv5hk0j1jv.jpg",
-  "leader_picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_100,w_100/v1468850578/production/x3xbk1elnn8po8uge97z.jpg",
+  "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761809/yfz18ahljkatmdpmsovp.jpg",
+  "leader_picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761810/fphwrhdgl0yh1zty9j2x.jpg",
   "like": 0,
   "unlike": 0,
   "link_video": null,
-  "addresses": {
-    "id": 4,
-    "street": "87, quai des Queyries",
-    "zipcode": "33000",
+  "address": {
+    "id": 20,
+    "street": "rue de la Boétie",
+    "zipcode": "33300",
     "city": "Bordeaux",
-    "latitude": 44.8420852,
-    "longitude": -0.5824325
+    "latitude": 44.839438,
+    "longitude": -0.5803727,
+    "main": true,
+    "timetables": [
+      {
+        "day": "lundi",
+        "start_at": "05:00",
+        "end_at": "07:00"
+      },
+      {
+        "day": "dimanche",
+        "start_at": "15:00",
+        "end_at": "19:00"
+      }
+    ]
   },
-  "perks":
-  [
+  "perks": [
     {
-      "id": 64,
-      "name": " 1 atelier pour 1 mini-potager :-)",
-      "description": "Parmi 4 formats on vous offre une réduction proportionnelle sur 1 atelier de jardinage de 50€: Format 12L - 20% de réduc, Format 19L -30% de réduc, Format 26L -40% de réduc et Format 41L -50% de réduc ",
-      "times": 0,
-      "start_date": null,
-      "end_date": null,
-      "active": false,
-      "perk_code": "UBDQ3",
-      "nb_views": 1,
-      "appel": true,
-      "durable": false,
-      "flash": false,
-      "perk_detail_id": 2,
-      "all_day": false,
-      "picture": "",
-      "offer": "Offert"
-    },
-    {
-      "id": 63,
-      "name": "-50% ATELIER CRéATION MINI-POTAGER☻",
-      "description": "Découvrez - Jardinez - Profitez - 50 % sur un atelier de création d'un mini-potager hors-sol Venez créer votre mini écosystème grâce à notre savoir-faire ! Contactez-nous pour nous donner vos disponibilités.",
+      "id": 4,
+      "name": "25% SUR LE PREMIER PRODUIT ACHETé !",
+      "description": "Pour vous accueillir en tant que nouveau client, nous vous offrons 25% sur le premier produit acheté :-)",
       "times": 0,
       "start_date": null,
       "end_date": null,
       "active": true,
-      "perk_code": "DYWI6",
-      "nb_views": 105,
+      "perk_code": "CFORGOOD",
+      "nb_views": 2,
       "appel": true,
       "durable": false,
       "flash": false,
       "perk_detail_id": 2,
       "all_day": false,
-      "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1468850748/production/ojbmbpjvq6nk57xfk7gj.jpg",
-      "offer": "-50%"
+      "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761814/lhc1bxpwlliscwth3kma.jpg",
+      "offer": "Offert"
     },
     {
-      "id": 62,
-      "name": "Qu'est ce qu'on S'ÈME !",
-      "business_id": 36,
-      "description": "Préparez votre mini-potager pour l'été ! ☀ - 10 % sur la Mâche, Tournesol Nain Jaune et Tomate Lime Green Présentez votre carte au marché pour en profiter ;-)",
-      "times": 25,
-      "start_date": "2016-03-15T00:00:00+01:00",
-      "end_date": "2016-03-28T23:00:00+02:00",
-      "active": false,
-      "perk_code": "WPOS1",
-      "nb_views": 15,
+      "id": 39,
+      "name": "TEST",
+      "description": "test",
+      "times": 0,
+      "start_date": "2017-02-21T00:00:00+01:00",
+      "end_date": "2017-02-21T23:59:00+01:00",
+      "active": true,
+      "perk_code": "",
+      "nb_views": 0,
       "appel": false,
       "durable": false,
       "flash": true,
-      "perk_detail_id": 1,
-      "all_day": false,
-      "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_600,w_800/v1468850767/production/xzgcgy3rdaothu2okcjt.jpg",
-      "offer": "-10%"
+      "perk_detail_id": 3,
+      "all_day": true,
+      "picture": null,
+      "offer": "Offert"
     }
   ]
 }
