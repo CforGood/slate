@@ -346,6 +346,7 @@ Remember — need authenticated user!
 {
   "id": 4,
   "name": "INSPIRESELF",
+  "activity": "Pour votre inspiration",
   "url": "http://www.inspireself.org/",
   "telephone": "+33663075090",
   "email": "info@inspireself.com",
@@ -386,6 +387,16 @@ Remember — need authenticated user!
       }
     ]
   },
+  "labels": [
+    {
+      "name": "Produits éco-responsables",
+      "picture": "labels/produits_eco-responsables.svg"
+    },
+    {
+      "name": "Politique anti-gaspillage",
+      "picture": "labels/politique_anti-gaspillage.svg"
+    }
+  ],
   "perks": [
     {
       "id": 4,
@@ -403,24 +414,6 @@ Remember — need authenticated user!
       "perk_detail_id": 2,
       "all_day": false,
       "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761814/lhc1bxpwlliscwth3kma.jpg",
-      "offer": "Offert"
-    },
-    {
-      "id": 39,
-      "name": "TEST",
-      "description": "test",
-      "times": 0,
-      "start_date": "2017-02-21T00:00:00+01:00",
-      "end_date": "2017-02-21T23:59:00+01:00",
-      "active": true,
-      "perk_code": "",
-      "nb_views": 0,
-      "appel": false,
-      "durable": false,
-      "flash": true,
-      "perk_detail_id": 3,
-      "all_day": true,
-      "picture": null,
       "offer": "Offert"
     }
   ]
