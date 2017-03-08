@@ -43,7 +43,7 @@ Signin is an API allowing signin user via email and password or facebook access_
 
 ### HTTPS Request
 
-`POST https://app.cforgood.com/api/v1`
+`POST https://app.cforgood.com/api/v1/`
 
 
 ### Request headers
