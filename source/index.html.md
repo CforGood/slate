@@ -129,8 +129,8 @@ If perk uses without feedback (like, unlike or unused) present, they are return 
 ### URL Parameters
 
 Parameter | Format | Description
---------- | ------ |-----------
-id | integer |The of the user to retrieve
+--------- | ------ | -----------
+id | integer | The id of the user to retrieve
 
 <aside class="success">
 Remember — need authenticated user!
@@ -139,7 +139,47 @@ Remember — need authenticated user!
 
 # Uses
 
-Uses is an API allowing update feedback of an use.
+Uses is an API allowing create and update an use.
+
+
+## Post a New Use
+
+> Request
+
+```json
+  { "use":
+    {
+      "perk_id": "39"
+    }
+  }
+```
+
+> The above command returns JSON structured like this:
+
+```json
+  {
+    "id": 67
+  }
+```
+
+This endpoint creates a new use.
+
+
+### HTTPS Request
+
+`Post https://app.cforgood.com/api/v1/uses`
+
+### Parameters
+
+Parameter | Format | Description
+--------- | ------ | -----------
+perk_id | integer | The id of the perk to create the corresponding use
+
+
+
+<aside class="success">
+Remember — need authenticated user!
+</aside>
 
 
 ## Patch a Specific Use
@@ -147,9 +187,10 @@ Uses is an API allowing update feedback of an use.
 > Request
 
 ```json
-  {
-    "id": 2,
-    "feedback": "like"
+  { "use":
+    {
+      "feedback": "like"
+    }
   }
 ```
 
@@ -159,13 +200,20 @@ This endpoint updates a specific use.
 
 ### HTTPS Request
 
-`Patch https://app.cforgood.com/api/v1/uses`
+`Patch https://app.cforgood.com/api/v1/uses/{id}`
+
+
+### URL Parameters
+
+Parameter | Format | Description
+--------- | ------ | -----------
+id | integer | The id of the use to update
+
 
 ### Parameters
 
 Parameter | Format | Description
 --------- | ------ | -----------
-id | interger |The id of the use to update
 feedback | string | like/unlike/unused
 
 Once of the optional feedback is mandatory.
@@ -268,7 +316,7 @@ This endpoint retrieves businesses with online shop or bot.
 
 Parameter | Default | Description
 --------- | ------- | -----------
-online | false | true : online businesses are return
+online | false | true : online businesses are also return
  | | false : only shop and itinerant businesses are selected
 
 <aside class="success">
@@ -382,14 +430,14 @@ This endpoint retrieves a specific business with its perks in detail.
 
 Parameter | Format | Description
 --------- | ------ | -----------
-id | interger | The id of the business to retrieve
+id | integer | The id of the business to retrieve
 address_id | integer | The id of the business address
 
 
 
 ### Perk Detail
 
-This is the way the park can be used
+This is the way the perk can be used
 
 Parameter | Description
 --------- | -----------
