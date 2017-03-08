@@ -237,6 +237,7 @@ Businesses is an API allowing retrieve some businesses with their addresses and 
   {
     "id": 7,
     "name": "Maison Hegara",
+    "activity": null,
     "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761830/v66jvtnvzp0cra5apc6u.jpg",
     "business_category_id": 12,
     "like": 0,
@@ -260,6 +261,7 @@ Businesses is an API allowing retrieve some businesses with their addresses and 
   {
     "id": 15,
     "name": "Koken",
+    "activity": null,
     "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761875/rulrjfzylc8yxkqsc6r5.jpg",
     "business_category_id": 13,
     "like": 0,
@@ -290,6 +292,7 @@ Businesses is an API allowing retrieve some businesses with their addresses and 
   {
     "id": 4,
     "name": "INSPIRESELF",
+    "activity": "Pour votre inspiration",
     "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761809/yfz18ahljkatmdpmsovp.jpg",
     "business_category_id": 10,
     "like": 0,
