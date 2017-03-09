@@ -141,7 +141,7 @@
 
 <h1 id="signin">Signin</h1>
 
-<p>Signin is an API allowing signin user via email and password or facebook access_token.</p>
+<p>This endpoint allow signin user via email and password or facebook access_token.</p>
 
 <blockquote>
 <p>Response JSON structured like this:</p>
@@ -263,6 +263,59 @@
 <td>id</td>
 <td>integer</td>
 <td>The id of the user to retrieve</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+Remember — need authenticated user!
+</aside>
+
+<h2 id="patch-a-specific-user">Patch a Specific User</h2>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"cause_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updates a specific user.</p>
+
+<h3 id="https-request">HTTPS Request</h3>
+
+<p><code class="prettyprint">Patch https://app.cforgood.com/api/v1/users/{id}</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format </th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>The id of the use to update</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format </th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>cause_id</td>
+<td>integer</td>
+<td>Id of the supported cause</td>
 </tr>
 </tbody></table>
 
@@ -639,6 +692,139 @@ Remember — need authenticated user!
 <tr>
 <td>3</td>
 <td>Online : Connect to the service (websebsite)</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+Remember — need authenticated user!
+</aside>
+
+<h1 id="causes">Causes</h1>
+
+<p>Causes is an API allowing retrieve a list of causes.</p>
+
+<h2 id="get-some-causes">Get Some Causes</h2>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Surfrider Foundation Europe"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"picture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761780/kerdxyjb7uvbqzfhwq0i.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"like"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bordeaux"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Osons Ici et Maintenant"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"picture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761735/lxnjjnsgljonbq89oifv.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"like"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bègles"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Etu-Récup"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"picture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761717/wvb36vhdecivgmdsixez.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"like"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pessac"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MakeSense"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"picture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761726/onvq0xsqiznclyv8y5ou.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"like"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"National"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ecolo Info"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"picture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761753/yq5xhyxsbyy9rkxa4h6t.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"like"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"National"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves causes, order by distance.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://app.cforgood.com/api/v1/causes?lat={lat}&amp;lng={lng}</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>lat</td>
+<td>latitude</td>
+<td>latitude of user position</td>
+</tr>
+<tr>
+<td>lng</td>
+<td>longitude</td>
+<td>longitude of user position</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+Remember — need authenticated user!
+</aside>
+
+<h2 id="get-a-specific-cause">Get a Specific Cause</h2>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Surfrider Foundation Europe"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"impact"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"picture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761780/kerdxyjb7uvbqzfhwq0i.jpg"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_100,w_100/v1479761781/quodkq75ly8hlie9nv2r.jpg"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"like"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Surfrider Foundation Europe est une association à but non lucratif (loi 1901), ayant « pour but la défense, la sauvegarde, la mise en valeur et la gestion durable de l'océan, du littoral, des vagues et de la population qui en jouit »."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"link_video"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"facebook"</span><span class="p">:</span><span class="w"> </span><span class="s2">"surfriderfoundationeurope"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"surfridereurope"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"instagram"</span><span class="p">:</span><span class="w"> </span><span class="s2">"surfridereurope"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"telephone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"05 59 23 54 99"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contact@surfriderfoundation.fr"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.surfrider.eu"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"87 quai des queyries"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33100"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bordeaux"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"representative_first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Surfrider"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"representative_last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Foundation"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"representative_testimonial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Notre responsabilité est plus forte aujourd’hui, notre vigilance doit être permanente, car les attentes de nos membres et de nos sympathisants sont grandes, à la mesure des enjeux qui se dressent devant nous en tant que société."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"user_cause"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific cause.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://app.cforgood.com/api/v1/causes/{id}</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>The id of the cause to retrieve</td>
 </tr>
 </tbody></table>
 
