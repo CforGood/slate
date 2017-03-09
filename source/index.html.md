@@ -30,7 +30,7 @@ X-User-Token | "1G8_s7P-V-4MGojaKD7a"
 
 # Signin
 
-Signin is an API allowing signin user via email and password or facebook access_token.
+This endpoint allow signin user via email and password or facebook access_token.
 
 > Response JSON structured like this:
 
@@ -131,6 +131,46 @@ If perk uses without feedback (like, unlike or unused) present, they are return 
 Parameter | Format | Description
 --------- | ------ | -----------
 id | integer | The id of the user to retrieve
+
+<aside class="success">
+Remember — need authenticated user!
+</aside>
+
+
+## Patch a Specific User
+
+> Request
+
+```json
+{
+  "user": {
+    "cause_id": 9
+  }
+}
+```
+
+
+This endpoint updates a specific user.
+
+
+### HTTPS Request
+
+`Patch https://app.cforgood.com/api/v1/users/{id}`
+
+
+### URL Parameters
+
+Parameter | Format | Description
+--------- | ------ | -----------
+id | integer | The id of the use to update
+
+
+### Parameters
+
+Parameter | Format | Description
+--------- | ------ | -----------
+cause_id | integer | Id of the supported cause
+
 
 <aside class="success">
 Remember — need authenticated user!
@@ -447,6 +487,122 @@ Parameter | Description
 1 | Carte : Show member card at the shop
 2 | Email : Send an email
 3 | Online : Connect to the service (websebsite)
+
+
+<aside class="success">
+Remember — need authenticated user!
+</aside>
+
+
+# Causes
+
+Causes is an API allowing retrieve a list of causes.
+
+## Get Some Causes
+
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 9,
+    "name": "Surfrider Foundation Europe",
+    "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761780/kerdxyjb7uvbqzfhwq0i.jpg",
+    "like": 0,
+    "city": "Bordeaux"
+  },
+  {
+    "id": 4,
+    "name": "Osons Ici et Maintenant",
+    "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761735/lxnjjnsgljonbq89oifv.jpg",
+    "like": 0,
+    "city": "Bègles"
+  },
+  {
+    "id": 2,
+    "name": "Etu-Récup",
+    "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761717/wvb36vhdecivgmdsixez.jpg",
+    "like": 0,
+    "city": "Pessac"
+  },
+  {
+    "id": 3,
+    "name": "MakeSense",
+    "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761726/onvq0xsqiznclyv8y5ou.jpg",
+    "like": 0,
+    "city": "National"
+  },
+  {
+    "id": 6,
+    "name": "Ecolo Info",
+    "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761753/yq5xhyxsbyy9rkxa4h6t.jpg",
+    "like": 0,
+    "city": "National"
+  }
+]
+```
+
+This endpoint retrieves causes, order by distance.
+
+### HTTP Request
+
+`GET https://app.cforgood.com/api/v1/causes?lat={lat}&lng={lng}`
+
+### URL Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+ lat | latitude | latitude of user position
+ lng | longitude | longitude of user position
+
+<aside class="success">
+Remember — need authenticated user!
+</aside>
+
+## Get a Specific Cause
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 9,
+  "name": "Surfrider Foundation Europe",
+  "impact": null,
+  "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761780/kerdxyjb7uvbqzfhwq0i.jpg",
+  "logo": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_100,w_100/v1479761781/quodkq75ly8hlie9nv2r.jpg",
+  "like": 0,
+  "description": "Surfrider Foundation Europe est une association à but non lucratif (loi 1901), ayant « pour but la défense, la sauvegarde, la mise en valeur et la gestion durable de l'océan, du littoral, des vagues et de la population qui en jouit ».",
+  "link_video": null,
+  "facebook": "surfriderfoundationeurope",
+  "twitter": "surfridereurope",
+  "instagram": "surfridereurope",
+  "telephone": "05 59 23 54 99",
+  "email": "contact@surfriderfoundation.fr",
+  "url": "http://www.surfrider.eu",
+  "street": "87 quai des queyries",
+  "zipcode": "33100",
+  "city": "Bordeaux",
+  "representative_first_name": "Surfrider",
+  "representative_last_name": "Foundation",
+  "representative_testimonial": "Notre responsabilité est plus forte aujourd’hui, notre vigilance doit être permanente, car les attentes de nos membres et de nos sympathisants sont grandes, à la mesure des enjeux qui se dressent devant nous en tant que société.",
+  "user_cause": false
+}
+```
+
+This endpoint retrieves a specific cause.
+
+### HTTP Request
+
+`GET https://app.cforgood.com/api/v1/causes/{id}`
+
+### URL Parameters
+
+Parameter | Format | Description
+--------- | ------ | -----------
+id | integer | The id of the cause to retrieve
+
 
 
 <aside class="success">
