@@ -457,13 +457,15 @@ Remember — need authenticated user!
       "perk_detail_id": 2,
       "all_day": false,
       "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761814/lhc1bxpwlliscwth3kma.jpg",
-      "offer": "Offert"
+      "offer": "Offert",
+      "usable_for_user": true
     }
   ]
 }
 ```
 
 This endpoint retrieves a specific business with its perks in detail.
+The field "usable_for_user" specifies if the perk is available or unavailable for the user.
 
 ### HTTP Request
 
