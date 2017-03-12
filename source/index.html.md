@@ -316,7 +316,7 @@ Remember — need authenticated user!
 
 Businesses is an API allowing retrieve some businesses with their addresses and perks.
 
-## Get Some Businesses
+## Get Businesses around 10km
 
 
 > The above command returns JSON structured like this:
@@ -342,7 +342,7 @@ Businesses is an API allowing retrieve some businesses with their addresses and 
         "id": 13,
         "name": "UN CADEAU DE BIENVENUE ",
         "flash": false,
-        "times": 0,
+        "times_remaining": 0,
         "picture": null,
         "offer": "Offert"
       }
@@ -367,7 +367,7 @@ Businesses is an API allowing retrieve some businesses with their addresses and 
         "id": 7,
         "name": "-50% SUR L'ATELIER DéGUSTATION",
         "flash": false,
-        "times": 0,
+        "times_remaining": 0,
         "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761827/jqh5qtvzp2er33wotfyf.jpg",
         "offer": "-50 %"
       },
@@ -375,7 +375,7 @@ Businesses is an API allowing retrieve some businesses with their addresses and 
         "id": 8,
         "name": "RAMENEZ VOS EMBALLAGES !",
         "flash": false,
-        "times": 0,
+        "times_remaining": 0,
         "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761828/exqxpb9ngtoqtgnmulay.jpg",
         "offer": "Offert"
       },
@@ -383,7 +383,7 @@ Businesses is an API allowing retrieve some businesses with their addresses and 
         "id": 6,
         "name": "UN THé OFFERT !",
         "flash": false,
-        "times": 0,
+        "times_remaining": 0,
         "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761825/uoesswsh288blhxqxgco.jpg",
         "offer": "Offert"
       },
@@ -391,7 +391,7 @@ Businesses is an API allowing retrieve some businesses with their addresses and 
         "id": 35,
         "name": "OFFRE FLASH DU MOMENT à NE PAS MANQ",
         "flash": true,
-        "times": 15,
+        "times_remaining": 15,
         "picture": null,
         "offer": "Offert"
       }
