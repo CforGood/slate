@@ -263,6 +263,55 @@ Remember — need authenticated user!
 </aside>
 
 
+
+# BusinessCategories
+
+BusinessCategories is an API allowing retreive all the business categories.
+
+## Get all business categories
+
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 19,
+    "name": "Mobilité",
+    "color": "#867486",
+    "marker_symbol": "marker-mobilite",
+    "picture": "business_categories/mobilite"
+  },
+  {
+    "id": 10,
+    "name": "Développement personnel",
+    "color": "#36d3da",
+    "marker_symbol": "marker-developpement",
+    "picture": "business_categories/yoga"
+  },
+  {
+    "id": 11,
+    "name": "Santé & Fitness",
+    "color": "#c386be",
+    "marker_symbol": "marker-forme",
+    "picture": "business_categories/santeetbienetre.svg"
+  }
+]
+```
+
+This endpoint list all business categories.
+
+
+### HTTPS Request
+
+`Get https://app.cforgood.com/api/v1/business_categories`
+
+
+<aside class="success">
+Remember — need authenticated user!
+</aside>
+
+
 # Businesses
 
 Businesses is an API allowing retrieve some businesses with their addresses and perks.
@@ -275,85 +324,75 @@ Businesses is an API allowing retrieve some businesses with their addresses and 
 ```json
 [
   {
-    "id": 7,
-    "name": "Maison Hegara",
+    "id": 10,
+    "name": "La ruche des Chartrons",
     "activity": null,
-    "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761830/v66jvtnvzp0cra5apc6u.jpg",
+    "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761848/xuhtfu5osbuttyhmfx3b.jpg",
     "business_category_id": 12,
     "like": 0,
     "addresses": [
       {
-        "id": 27,
-        "latitude": 44.8525244,
-        "longitude": -0.5731832
+        "id": 28,
+        "latitude": 44.8561327,
+        "longitude": -0.576172
       }
     ],
     "perks": [
       {
-        "id": 9,
-        "name": "DEUX CONTENANTS OFFERTS ! ",
+        "id": 13,
+        "name": "UN CADEAU DE BIENVENUE ",
         "flash": false,
+        "times": 0,
         "picture": null,
         "offer": "Offert"
       }
     ]
   },
   {
-    "id": 15,
-    "name": "Koken",
+    "id": 6,
+    "name": "Origines Tea & Coffee",
     "activity": null,
-    "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761875/rulrjfzylc8yxkqsc6r5.jpg",
-    "business_category_id": 13,
+    "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761822/cc8ilkgti3avgssyxnrg.jpg",
+    "business_category_id": 16,
     "like": 0,
     "addresses": [
       {
-        "id": 32,
-        "latitude": 44.8414224,
-        "longitude": -0.5755607
+        "id": 23,
+        "latitude": 44.8518459,
+        "longitude": -0.5718565
       }
     ],
     "perks": [
       {
-        "id": 18,
-        "name": "BIENVENUE! UN KDO éTHIQUE OFFERT...",
+        "id": 7,
+        "name": "-50% SUR L'ATELIER DéGUSTATION",
         "flash": false,
-        "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761878/sixs97hb7bpio5exlqmk.jpg",
+        "times": 0,
+        "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761827/jqh5qtvzp2er33wotfyf.jpg",
+        "offer": "-50 %"
+      },
+      {
+        "id": 8,
+        "name": "RAMENEZ VOS EMBALLAGES !",
+        "flash": false,
+        "times": 0,
+        "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761828/exqxpb9ngtoqtgnmulay.jpg",
         "offer": "Offert"
       },
       {
-        "id": 20,
-        "name": "-15% SUR L'ARTICLE DE VOTRE CHOIX..",
+        "id": 6,
+        "name": "UN THé OFFERT !",
         "flash": false,
-        "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761882/lh3lqeuomsw8crkyidws.jpg",
+        "times": 0,
+        "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761825/uoesswsh288blhxqxgco.jpg",
         "offer": "Offert"
-      }
-    ]
-  },
-  {
-    "id": 4,
-    "name": "INSPIRESELF",
-    "activity": "Pour votre inspiration",
-    "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761809/yfz18ahljkatmdpmsovp.jpg",
-    "business_category_id": 10,
-    "like": 0,
-    "addresses": [
-      {
-        "id": 20,
-        "latitude": 44.839438,
-        "longitude": -0.5803727
       },
       {
-        "id": 38,
-        "latitude": 44.8772685,
-        "longitude": -0.554149
-      }
-    ],
-    "perks": [
-      {
-        "id": 4,
-        "name": "25% SUR LE PREMIER PRODUIT ACHETé !",
-        "flash": false,
-        "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761814/lhc1bxpwlliscwth3kma.jpg",
+        "id": 35,
+        "name": "OFFRE FLASH DU MOMENT à NE PAS MANQ",
+        "flash": true,
+        "times": 15,
+        "picture": null,
         "offer": "Offert"
       }
     ]
