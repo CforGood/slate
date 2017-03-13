@@ -64,7 +64,7 @@ This endpoint signin a specific user.
 
 # Users
 
-Users is an API allowing retrieve informations about an user.
+Users is an API allowing retrieve informations about an user and update it.
 
 For information:
 
