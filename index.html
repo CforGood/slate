@@ -734,9 +734,58 @@ The field &ldquo;usable_for_user&rdquo; specifies if the perk is available or un
 Remember — need authenticated user!
 </aside>
 
+<h1 id="causecategories">CauseCategories</h1>
+
+<p>CauseCategories is an API allowing retreive all the cause categories.</p>
+
+<h2 id="get-all-cause-categories">Get all cause categories</h2>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+</span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Humanitaire"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#ff9e00"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"picture"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"picture"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://res.cloudinary.com/dktivbech/image/upload/v1479761700/nj0gbkqzoe7gwtnkbw22.png"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"thumb"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_100,w_100/v1479761700/nj0gbkqzoe7gwtnkbw22.png"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Culturel"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#8e513a)"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"picture"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"picture"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://res.cloudinary.com/dktivbech/image/upload/v1479761701/quy11yy9oj5emwsx8hah.png"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"thumb"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_100,w_100/v1479761701/quy11yy9oj5emwsx8hah.png"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint list all cause categories.</p>
+
+<h3 id="https-request">HTTPS Request</h3>
+
+<p><code class="prettyprint">Get https://app.cforgood.com/api/v1/cause_categories</code></p>
+
+<aside class="success">
+Remember — need authenticated user!
+</aside>
+
 <h1 id="causes">Causes</h1>
 
-<p>Causes is an API allowing retrieve a list of causes.</p>
+<p>Causes is an API allowing retrieve a list of causes, a specific cause and permit to create a cause.</p>
 
 <h2 id="get-some-causes">Get Some Causes</h2>
 
@@ -818,26 +867,26 @@ Remember — need authenticated user!
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Surfrider Foundation Europe"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"impact"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"picture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761780/kerdxyjb7uvbqzfhwq0i.jpg"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_100,w_100/v1479761781/quodkq75ly8hlie9nv2r.jpg"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Keep A Breast Europe"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"impact"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25€ permettent de financer un atelier éducatif, créatif et ludique pour sensibiliser les 5/11 ans"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"picture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761743/drftnjctv9peeqcjdcq4.jpg"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_100,w_100/v1479761745/pl56rirwnzuymh6famoh.jpg"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"like"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Surfrider Foundation Europe est une association à but non lucratif (loi 1901), ayant « pour but la défense, la sauvegarde, la mise en valeur et la gestion durable de l'océan, du littoral, des vagues et de la population qui en jouit »."</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"link_video"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"facebook"</span><span class="p">:</span><span class="w"> </span><span class="s2">"surfriderfoundationeurope"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"surfridereurope"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"instagram"</span><span class="p">:</span><span class="w"> </span><span class="s2">"surfridereurope"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"telephone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"05 59 23 54 99"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contact@surfriderfoundation.fr"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.surfrider.eu"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"87 quai des queyries"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33100"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Créée en 2008, Keep A Breast Foundation Europe est une association à but non lucratif et reconnue d’intérêt général dont la mission est d'apporter aux jeunes du monde entier l'éducation indispensable à la bonne connaissance de l’impact de leur environnement sur leur santé en général et leur poitrine en particulier."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"link_video"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.youtube.com/embed/ykB-Ue_i7y8?list=PLzx8g_q3cJgzGmP1aW3evd3XgGmTLOz4q"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"facebook"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KeepABreastFrance"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"keepabreastEU"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"instagram"</span><span class="p">:</span><span class="w"> </span><span class="s2">"keepabreasteu"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"telephone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"europe@keep-a-breast.org"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.keep-a-breast.fr"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15, rue Francis Garnier"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">" 33000 "</span><span class="p">,</span><span class="w">
   </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bordeaux"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"representative_first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Surfrider"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"representative_last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Foundation"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"representative_testimonial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Notre responsabilité est plus forte aujourd’hui, notre vigilance doit être permanente, car les attentes de nos membres et de nos sympathisants sont grandes, à la mesure des enjeux qui se dressent devant nous en tant que société."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"representative_first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Keep"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"representative_last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Breast"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"representative_testimonial"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"user_cause"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -859,7 +908,116 @@ Remember — need authenticated user!
 <tr>
 <td>id</td>
 <td>integer</td>
-<td>The id of the cause to retrieve</td>
+<td>id of the cause to retreive</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+Remember — need authenticated user!
+</aside>
+
+<h2 id="post-a-cause">Post a Cause</h2>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w"> </span><span class="nt">"cause"</span><span class="p">:</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"civility"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"representative_first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Keep"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"representative_last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Breast"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"europe@keep-a-breast.org"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"cause_category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Keep A Breast Europe"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"impact"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25€ permettent de financer un atelier éducatif, créatif et ludique pour sensibiliser les 5/11 ans"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Créée en 2008, Keep A Breast Foundation Europe est une association à but non lucratif et reconnue d’intérêt général dont la mission est d'apporter aux jeunes du monde entier l'éducation indispensable à la bonne connaissance de l’impact de leur environnement sur leur santé en général et leur poitrine en particulier."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15, rue Francis Garnier"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bordeaux"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates a specific cause.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://app.cforgood.com/api/v1/causes</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>civility</td>
+<td>integer</td>
+<td>1 : M</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>2 : Mme</td>
+</tr>
+<tr>
+<td>representative_first_name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>representative_last_name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>cause_category_id</td>
+<td>integer</td>
+<td>id of cause category (cf: index cause_categories)</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>impact</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>street</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>zipcode</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>city</td>
+<td>string</td>
+<td></td>
 </tr>
 </tbody></table>
 
