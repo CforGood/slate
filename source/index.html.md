@@ -518,7 +518,6 @@ id | integer | The id of the business to retrieve
 address_id | integer | The id of the business address
 
 
-
 ### Perk Detail
 
 This is the way the perk can be used
@@ -535,12 +534,64 @@ Remember — need authenticated user!
 </aside>
 
 
+# CauseCategories
+
+CauseCategories is an API allowing retreive all the cause categories.
+
+## Get all cause categories
+
+> The above command returns JSON structured like this:
+
+```json
+[
+[
+  {
+    "id": 1,
+    "name": "Humanitaire",
+    "color": "#ff9e00",
+    "picture": {
+      "picture": {
+        "url": "https://res.cloudinary.com/dktivbech/image/upload/v1479761700/nj0gbkqzoe7gwtnkbw22.png",
+        "thumb": {
+          "url": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_100,w_100/v1479761700/nj0gbkqzoe7gwtnkbw22.png"
+        }
+      }
+    }
+  },
+  {
+    "id": 2,
+    "name": "Culturel",
+    "color": "#8e513a)",
+    "picture": {
+      "picture": {
+        "url": "https://res.cloudinary.com/dktivbech/image/upload/v1479761701/quy11yy9oj5emwsx8hah.png",
+        "thumb": {
+          "url": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_100,w_100/v1479761701/quy11yy9oj5emwsx8hah.png"
+        }
+      }
+    }
+  }
+]
+```
+
+This endpoint list all cause categories.
+
+
+### HTTPS Request
+
+`Get https://app.cforgood.com/api/v1/cause_categories`
+
+
+<aside class="success">
+Remember — need authenticated user!
+</aside>
+
+
 # Causes
 
-Causes is an API allowing retrieve a list of causes.
+Causes is an API allowing retrieve a list of causes, a specific cause and permit to create a cause.
 
 ## Get Some Causes
-
 
 > The above command returns JSON structured like this:
 
@@ -608,26 +659,26 @@ Remember — need authenticated user!
 
 ```json
 {
-  "id": 9,
-  "name": "Surfrider Foundation Europe",
-  "impact": null,
-  "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761780/kerdxyjb7uvbqzfhwq0i.jpg",
-  "logo": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_100,w_100/v1479761781/quodkq75ly8hlie9nv2r.jpg",
+  "id": 5,
+  "name": "Keep A Breast Europe",
+  "impact": "25€ permettent de financer un atelier éducatif, créatif et ludique pour sensibiliser les 5/11 ans",
+  "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761743/drftnjctv9peeqcjdcq4.jpg",
+  "logo": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_100,w_100/v1479761745/pl56rirwnzuymh6famoh.jpg",
   "like": 0,
-  "description": "Surfrider Foundation Europe est une association à but non lucratif (loi 1901), ayant « pour but la défense, la sauvegarde, la mise en valeur et la gestion durable de l'océan, du littoral, des vagues et de la population qui en jouit ».",
-  "link_video": null,
-  "facebook": "surfriderfoundationeurope",
-  "twitter": "surfridereurope",
-  "instagram": "surfridereurope",
-  "telephone": "05 59 23 54 99",
-  "email": "contact@surfriderfoundation.fr",
-  "url": "http://www.surfrider.eu",
-  "street": "87 quai des queyries",
-  "zipcode": "33100",
+  "description": "Créée en 2008, Keep A Breast Foundation Europe est une association à but non lucratif et reconnue d’intérêt général dont la mission est d'apporter aux jeunes du monde entier l'éducation indispensable à la bonne connaissance de l’impact de leur environnement sur leur santé en général et leur poitrine en particulier.",
+  "link_video": "https://www.youtube.com/embed/ykB-Ue_i7y8?list=PLzx8g_q3cJgzGmP1aW3evd3XgGmTLOz4q",
+  "facebook": "KeepABreastFrance",
+  "twitter": "keepabreastEU",
+  "instagram": "keepabreasteu",
+  "telephone": null,
+  "email": "europe@keep-a-breast.org",
+  "url": "http://www.keep-a-breast.fr",
+  "street": "15, rue Francis Garnier",
+  "zipcode": " 33000 ",
   "city": "Bordeaux",
-  "representative_first_name": "Surfrider",
-  "representative_last_name": "Foundation",
-  "representative_testimonial": "Notre responsabilité est plus forte aujourd’hui, notre vigilance doit être permanente, car les attentes de nos membres et de nos sympathisants sont grandes, à la mesure des enjeux qui se dressent devant nous en tant que société.",
+  "representative_first_name": "Keep",
+  "representative_last_name": "Breast",
+  "representative_testimonial": null,
   "user_cause": false
 }
 ```
@@ -641,14 +692,72 @@ This endpoint retrieves a specific cause.
 ### URL Parameters
 
 Parameter | Format | Description
---------- | ------ | -----------
-id | integer | The id of the cause to retrieve
-
+--------- | ------- | -----------
+ id | integer | id of the cause to retreive
 
 
 <aside class="success">
 Remember — need authenticated user!
 </aside>
+
+## Post a Cause
+
+> Request
+
+```json
+{ "cause":
+  {
+    "civility": 1,
+    "representative_first_name": "Keep",
+    "representative_last_name": "Breast",
+    "email": "europe@keep-a-breast.org",
+    "cause_category_id": 2,
+    "name": "Keep A Breast Europe",
+    "impact": "25€ permettent de financer un atelier éducatif, créatif et ludique pour sensibiliser les 5/11 ans",
+    "description": "Créée en 2008, Keep A Breast Foundation Europe est une association à but non lucratif et reconnue d’intérêt général dont la mission est d'apporter aux jeunes du monde entier l'éducation indispensable à la bonne connaissance de l’impact de leur environnement sur leur santé en général et leur poitrine en particulier.",
+    "street": "15, rue Francis Garnier",
+    "zipcode": "33000",
+    "city": "Bordeaux"
+  }
+}
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 9
+}
+```
+
+This endpoint creates a specific cause.
+
+### HTTP Request
+
+`POST https://app.cforgood.com/api/v1/causes`
+
+### Parameters
+
+Parameter | Format | Description
+--------- | ------ | -----------
+civility | integer | 1 : M
+ | | 2 : Mme
+representative_first_name | string |
+representative_last_name | string |
+email | string |
+cause_category_id | integer | id of cause category (cf: index cause_categories)
+name | string |
+impact | string |
+description | string |
+street | string |
+zipcode | string |
+city | string |
+
+
+<aside class="success">
+Remember — need authenticated user!
+</aside>
+
 
 <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
 
