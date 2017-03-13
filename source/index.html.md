@@ -508,7 +508,7 @@ The field "usable_for_user" specifies if the perk is available or unavailable fo
 
 ### HTTP Request
 
-`GET https://app.cforgood.com/api/v1/businesses/{id}&address={address_id}`
+`GET https://app.cforgood.com/api/v1/businesses/{id}&address_id={address_id}`
 
 ### URL Parameters
 
