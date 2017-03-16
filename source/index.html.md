@@ -69,11 +69,13 @@ Users is an API allowing retrieve informations about an user and update it.
 For information:
 
 - user_member = false -> popup not_member_dashboard
-- businesses_around < 0 -> popup no_perks_dashboaard
+- businesses_around = 0 -> popup no_perks_dashboaard
 - uses_without_feedback present(s) -> form feedback_dashboard
 - user_trial_done = true
   - si code_partner = [GIFT3MONTH, GIFT6MONTH, GIFT12MONTH] -> popup welcome_member_trial_gift
   - sinon -> popup welcome_member_trial
+- first_perk_offer = true - popup first_perk_offer
+
 
 ## Get a Specific User
 
@@ -81,25 +83,57 @@ For information:
 
 ```json
 {
-  "id": 2,
-  "first_name": "Allan",
-  "last_name": "Cforgood",
-  "name": "Allan Cforgood",
-  "picture": "https://...",
+{
+  "id": 127,
+  "first_name": "Fred",
+  "last_name": "Pétris",
+  "name": "Frédérique Pétris",
+  "ambassador": true,
+  "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1487241398/tx3rxpmcq7je7he7qsnw.jpg",
   "member": true,
   "trial_done": false,
-  "trial_attributes":
+  "birthday": "1981-01-01T00:00:00+01:00",
+  "subscription": "M",
+  "amount": 12,
+  "street": "Rue Marsan",
+  "zipcode": "33300",
+  "city": "Bordeaux",
+  "status": "Abonné depuis le 16 mars 2017",
+  "logo_member_card": null,
+  "cause_attributes": {
+    "name": "Ecolo Info",
+    "city": "National",
+    "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761753/yq5xhyxsbyy9rkxa4h6t.jpg",
+    "total_donation": 57
+  },
+  "donation_attributes": [
     {
-      "date_end_partner": "Mon, 06 Jun 2017 10:27:36 CET +01:00",
-      "partner_name": "Cforgood"
+      "cause_name": "Ecolo Info",
+      "created_at": "2017-03-16T16:48:07+01:00",
+      "amount": 45
     },
-  "gift_attributes":
     {
-      "code_partner": "GIFT3MONTH",
-      "user_offering_first_name": "Mathilde",
-      "user_offering_last_name": "Cforgood",
-      "nb_month_beneficiary": 3
-    },
+      "cause_name": "Ecolo Info",
+      "created_at": "2017-03-16T16:49:28+01:00",
+      "amount": 12
+    }
+  ],
+  "trial_attributes": {
+    "date_end_partner": "Mon, 06 Jun 2017 10:27:36 CET +01:00",
+    "partner_name": "Cforgood"
+  },
+  "gift_attributes": {
+    "code_partner": "GIFT3MONTH",
+    "user_offering_first_name": "Mathilde",
+    "user_offering_last_name": "Cforgood",
+    "nb_month_beneficiary": 3
+  },
+  "first_perk_offer":
+  {
+    "business_id": 23,
+    "address_id": 41,
+    "perk_id": 40
+  },
   "uses_without_feedback": [
     {
       "id": 10,
@@ -144,13 +178,25 @@ Remember — need authenticated user!
 ```json
 {
   "user": {
+    "email": "allan@cforgood",
+    "first_name": "Allan",
+    "last_name": "Floury",
+    "birthday": "1981-01-01T00:00:00+01:00",
+    "subscription": "M",
+    "amount": 10,
+    "street": "Rue Marsan",
+    "zipcode": "33300",
+    "city": "Bordeaux",
     "cause_id": 9
+    "stop_subscription": true
   }
 }
 ```
 
 
 This endpoint updates a specific user.
+Each field is optional.
+If stop_subscription = true is present, no others field will be updated !
 
 
 ### HTTPS Request
@@ -256,7 +302,7 @@ Parameter | Format | Description
 --------- | ------ | -----------
 feedback | string | like/unlike/unused
 
-Once of the optional feedback is mandatory.
+Once of the feedback is mandatory.
 
 <aside class="success">
 Remember — need authenticated user!
@@ -493,7 +539,7 @@ Remember — need authenticated user!
       "appel": true,
       "durable": false,
       "flash": false,
-      "perk_detail_id": 2,
+      "perk_detail_name": 2,
       "all_day": false,
       "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761814/lhc1bxpwlliscwth3kma.jpg",
       "offer": "Offert",
