@@ -188,7 +188,6 @@ Remember — need authenticated user!
     "zipcode": "33300",
     "city": "Bordeaux",
     "cause_id": 9
-    "stop_subscription": true
   }
 }
 ```
@@ -196,7 +195,7 @@ Remember — need authenticated user!
 
 This endpoint updates a specific user.
 Each field is optional.
-If stop_subscription = true is present, no others field will be updated !
+If subscription = "X", stop subscription is activated and no other fields will be updated !
 
 
 ### HTTPS Request
@@ -215,6 +214,15 @@ id | integer | The id of the use to update
 
 Parameter | Format | Description
 --------- | ------ | -----------
+email | email | with @
+first_name | string |
+last_name | string |
+birthday | datetime |
+subscription | string | "M" (monthly), "Y" (yearly), "X" (stop subscription)
+amount | integer |
+street | string |
+zipcode | string |
+city | string |
 cause_id | integer | Id of the supported cause
 
 
