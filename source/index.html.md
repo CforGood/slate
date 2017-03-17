@@ -83,7 +83,6 @@ For information:
 
 ```json
 {
-{
   "id": 127,
   "first_name": "Fred",
   "last_name": "Pétris",
