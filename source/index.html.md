@@ -586,6 +586,58 @@ Parameter | Description
 Remember — need authenticated user!
 </aside>
 
+# Perks
+
+Perkss is an API allowing retreive a specific perk.
+
+## Get a specific perk
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 13,
+  "name": "UN CADEAU DE BIENVENUE ",
+  "description": "Pour chaque première commande, un cadeau de bienvenue offert ! ",
+  "times": 0,
+  "start_date": null,
+  "end_date": null,
+  "active": true,
+  "perk_code": "ZESI7",
+  "nb_views": 39,
+  "appel": true,
+  "durable": false,
+  "flash": false,
+  "perk_detail_id": 3,
+  "perk_detail_name": "carte",
+  "all_day": false,
+  "picture": null,
+  "offer": "Offert",
+  "usable_for_user": true
+}
+```
+
+This endpoint list all business categories.
+
+
+### HTTPS Request
+
+`Get https://app.cforgood.com/api/v1/perks/{id}`
+
+
+### URL Parameters
+
+Parameter | Format | Description
+--------- | ------ | -----------
+id | integer | The id of the perk to retrieve
+
+
+<aside class="success">
+Remember — need authenticated user!
+</aside>
+
+
 
 # CauseCategories
 
