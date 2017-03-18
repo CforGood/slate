@@ -588,7 +588,7 @@ Remember — need authenticated user!
 
 # Perks
 
-Perkss is an API allowing retreive a specific perk.
+Perks is an API allowing retreive a specific perk.
 
 ## Get a specific perk
 
@@ -618,7 +618,7 @@ Perkss is an API allowing retreive a specific perk.
 }
 ```
 
-This endpoint list all business categories.
+This endpoint retrieve a specific perk.
 
 
 ### HTTPS Request
