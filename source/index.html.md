@@ -549,6 +549,7 @@ Remember — need authenticated user!
       "perk_detail_name": 2,
       "all_day": false,
       "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761814/lhc1bxpwlliscwth3kma.jpg",
+      "times_remaining": 0,
       "offer": "Offert",
       "usable_for_user": true
     }
@@ -613,6 +614,7 @@ Perks is an API allowing retreive a specific perk.
   "perk_detail_name": "carte",
   "all_day": false,
   "picture": null,
+  "times_remaining": 0,
   "offer": "Offert",
   "usable_for_user": true
 }
