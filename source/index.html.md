@@ -97,6 +97,7 @@ For information:
   "street": "Rue Marsan",
   "zipcode": "33300",
   "city": "Bordeaux",
+  "code_partner": "GIFT3MONTH",
   "status": "Abonné depuis le 16 mars 2017",
   "logo_member_card": null,
   "cause_attributes": {
@@ -122,7 +123,6 @@ For information:
     "partner_name": "Cforgood"
   },
   "gift_attributes": {
-    "code_partner": "GIFT3MONTH",
     "user_offering_first_name": "Mathilde",
     "user_offering_last_name": "Cforgood",
     "nb_month_beneficiary": 3
@@ -186,7 +186,8 @@ Remember — need authenticated user!
     "street": "Rue Marsan",
     "zipcode": "33300",
     "city": "Bordeaux",
-    "cause_id": 9
+    "cause_id": 9,
+    "picture": "https..."
   }
 }
 ```
@@ -219,10 +220,12 @@ last_name | string |
 birthday | datetime |
 subscription | string | "M" (monthly), "Y" (yearly), "X" (stop subscription)
 amount | integer |
+code_partner | string |
 street | string |
 zipcode | string |
 city | string |
 cause_id | integer | Id of the supported cause
+picture | url | Url of  the picture loaded on Cloudinary
 
 
 <aside class="success">
