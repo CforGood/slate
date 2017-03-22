@@ -84,6 +84,7 @@ For information:
 ```json
 {
   "id": 127,
+  "email": "frederique.petris@gmail.com",
   "first_name": "Fred",
   "last_name": "Pétris",
   "name": "Frédérique Pétris",
