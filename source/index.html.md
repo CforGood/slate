@@ -105,18 +105,22 @@ For information:
     "name": "Ecolo Info",
     "city": "National",
     "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761753/yq5xhyxsbyy9rkxa4h6t.jpg",
-    "total_donation": 57
+    "total_donation": 32.14
   },
   "donation_attributes": [
     {
       "cause_name": "Ecolo Info",
       "created_at": "2017-03-16T16:48:07+01:00",
-      "amount": 45
+      "subscription": "M",
+      "amount": 45,
+      "donation": 37.5
     },
     {
       "cause_name": "Ecolo Info",
       "created_at": "2017-03-16T16:49:28+01:00",
-      "amount": 12
+      "subscription": "M",
+      "amount": 12,
+      "donation": 7
     }
   ],
   "trial_attributes": {
