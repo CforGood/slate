@@ -100,11 +100,14 @@ For information:
   "city": "Bordeaux",
   "code_partner": "GIFT3MONTH",
   "status": "Abonné depuis le 16 mars 2017",
-  "logo_member_card": null,
+  "supervisor_name": "Néoplanète",
+  "supervisor_logo": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_100,w_100/v1479761710/ijarsexpmcq7je7h22cz.jpg",
   "cause_attributes": {
+    "id": "3"
     "name": "Ecolo Info",
     "city": "National",
     "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761753/yq5xhyxsbyy9rkxa4h6t.jpg",
+    "logo": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_100,w_100/v1479761710/ijarsettafrhkyit22cz.jpg",
     "total_donation": 32.14
   },
   "donation_attributes": [
