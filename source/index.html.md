@@ -389,6 +389,7 @@ Businesses is an API allowing retrieve some businesses with their addresses and 
 [
   {
     "id": 10,
+    "email": "ruchedeschartrons@gmail.com",
     "name": "La ruche des Chartrons",
     "activity": null,
     "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761848/xuhtfu5osbuttyhmfx3b.jpg",
