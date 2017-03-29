@@ -100,8 +100,15 @@ For information:
   "city": "Bordeaux",
   "code_partner": "GIFT3MONTH",
   "status": "Abonné depuis le 16 mars 2017",
-  "supervisor_name": "Néoplanète",
-  "supervisor_logo": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_100,w_100/v1479761710/ijarsexpmcq7je7h22cz.jpg",
+  json.supervisor_attributes do
+  "supervisor_attributes": {
+    "supervisor_name": "Néoplanète",
+    "supervisor_logo": null
+  },
+  "business_supervisor_attributes": {
+    "supervisor_name": "INSPIRESELF",
+    "supervisor_logo": null
+  },
   "cause_attributes": {
     "id": "3"
     "name": "Ecolo Info",
