@@ -416,7 +416,8 @@ Businesses is an API allowing retrieve some businesses with their addresses and 
         "flash": false,
         "times_remaining": 0,
         "picture": null,
-        "offer": "Offert"
+        "offer": "Offert",
+        "nb_views": 177
       }
     ]
   },
@@ -441,7 +442,8 @@ Businesses is an API allowing retrieve some businesses with their addresses and 
         "flash": false,
         "times_remaining": 0,
         "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761827/jqh5qtvzp2er33wotfyf.jpg",
-        "offer": "-50 %"
+        "offer": "-50 %",
+        "nb_views": 52
       },
       {
         "id": 8,
@@ -449,7 +451,8 @@ Businesses is an API allowing retrieve some businesses with their addresses and 
         "flash": false,
         "times_remaining": 0,
         "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761828/exqxpb9ngtoqtgnmulay.jpg",
-        "offer": "Offert"
+        "offer": "Offert",
+        "nb_views": 21
       },
       {
         "id": 6,
@@ -457,7 +460,8 @@ Businesses is an API allowing retrieve some businesses with their addresses and 
         "flash": false,
         "times_remaining": 0,
         "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761825/uoesswsh288blhxqxgco.jpg",
-        "offer": "Offert"
+        "offer": "Offert",
+        "nb_views": 47
       },
       {
         "id": 35,
@@ -465,7 +469,8 @@ Businesses is an API allowing retrieve some businesses with their addresses and 
         "flash": true,
         "times_remaining": 15,
         "picture": null,
-        "offer": "Offert"
+        "offer": "Offert",
+        "nb_views": 62
       }
     ]
   }
