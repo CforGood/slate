@@ -185,7 +185,7 @@
 
 <h1 id="users">Users</h1>
 
-<p>Users is an API allowing retrieve informations about an user and update it.</p>
+<p>Users is an API allowing create, retrieve informations about an user and update it.</p>
 
 <p>For information:</p>
 
@@ -201,6 +201,81 @@
 </ul></li>
 <li>first_perk_offer = true - popup first_perk_offer</li>
 </ul>
+
+<h2 id="post-a-specific-user">Post a Specific User</h2>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w"> </span><span class="nt">"user"</span><span class="p">:</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"zaz"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"doe"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123nuage"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"zaz@doe.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bordeaux"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33300"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"code_partner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LABELTERRE"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates a specific user.</p>
+
+<h3 id="https-request">HTTPS Request</h3>
+
+<p><code class="prettyprint">Post https://app.cforgood.com/api/v1/users</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format </th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>email</td>
+<td>with @</td>
+</tr>
+<tr>
+<td>first_name</td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>required (minimum 8 caracters)</td>
+</tr>
+<tr>
+<td>city</td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td>zipcode</td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td>code_partner</td>
+<td>string</td>
+<td>optional</td>
+</tr>
+</tbody></table>
+
+<p>I&rsquo;s a minimum fields. Fields birthday, street&hellip; are permit.</p>
+
+<aside class="success">
+NO authenticated user!
+</aside>
 
 <h2 id="get-a-specific-user">Get a Specific User</h2>
 
