@@ -64,7 +64,7 @@ This endpoint signin a specific user.
 
 # Users
 
-Users is an API allowing retrieve informations about an user and update it.
+Users is an API allowing create, retrieve informations about an user and update it.
 
 For information:
 
@@ -75,6 +75,52 @@ For information:
   - si code_partner = [GIFT3MONTH, GIFT6MONTH, GIFT12MONTH] -> popup welcome_member_trial_gift
   - sinon -> popup welcome_member_trial
 - first_perk_offer = true - popup first_perk_offer
+
+
+
+## Post a Specific User
+
+> Request
+
+```json
+{ "user":
+  {
+    "first_name": "zaz",
+    "last_name": "doe",
+    "password": "123nuage",
+    "email": "zaz@doe.com",
+    "city": "Bordeaux",
+    "zipcode": "33300",
+    "code_partner": "LABELTERRE"
+  }
+}
+```
+
+This endpoint creates a specific user.
+
+
+### HTTPS Request
+
+`Post https://app.cforgood.com/api/v1/users`
+
+
+### Parameters
+
+Parameter | Format | Description
+--------- | ------ | -----------
+email | email | with @ | required
+first_name | string | required
+last_name | string | required
+password | string | required (minimum 8 caracters)
+city | string | required
+zipcode | string | required
+code_partner | string | optional
+
+I's a minimum fields. Fields birthday, street... are permit.
+
+<aside class="success">
+NO authenticated user!
+</aside>
 
 
 ## Get a Specific User
