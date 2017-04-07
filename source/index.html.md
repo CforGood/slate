@@ -32,14 +32,6 @@ X-User-Token | "1G8_s7P-V-4MGojaKD7a"
 
 This endpoint allow signin user via email and password or facebook access_token.
 
-> Response JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "authentication_token": "ARIDO3557Z0Z0Z"
-}
-```
 
 ### HTTPS Request
 
