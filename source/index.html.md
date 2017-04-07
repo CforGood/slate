@@ -30,8 +30,6 @@ X-User-Token | "1G8_s7P-V-4MGojaKD7a"
 
 # Signin
 
-This endpoint allow signin user via email and password or facebook access_token.
-
 
 > Response JSON structured like this:
 
@@ -42,6 +40,8 @@ This endpoint allow signin user via email and password or facebook access_token.
   "authentication_token": "ARIDO3557Z0Z0Z"
 }
 ```
+
+This endpoint allow signin user via email and password or facebook access_token.
 
 ### HTTPS Request
 
@@ -59,7 +59,6 @@ access_token | "uid facebbok"
 
 `password` or `access_token` are optional but one of both is mandatory.
 
-If user never signin via facebook, the API return an error `402` to signin once via facebook on the web app.
 
 This endpoint signin a specific user.
 
@@ -102,7 +101,7 @@ For information:
 
 ```json
 {
-  "id": 2,
+  "id": 2
 }
 ```
 
@@ -156,7 +155,6 @@ NO authenticated user!
   "city": "Bordeaux",
   "code_partner": "GIFT3MONTH",
   "status": "Abonné depuis le 16 mars 2017",
-  json.supervisor_attributes do
   "supervisor_attributes": {
     "supervisor_name": "Néoplanète",
     "supervisor_logo": null
@@ -166,7 +164,7 @@ NO authenticated user!
     "supervisor_logo": null
   },
   "cause_attributes": {
-    "id": "3"
+    "id": "3",
     "name": "Ecolo Info",
     "city": "National",
     "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761753/yq5xhyxsbyy9rkxa4h6t.jpg",
