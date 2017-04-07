@@ -62,6 +62,16 @@ If user never signin via facebook, the API return an error `402` to signin once 
 This endpoint signin a specific user.
 
 
+> Response JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "email": "frederique.petris@gmail.com",
+  "authentication_token": "ARIDO3557Z0Z0Z"
+}
+```
+
 # Users
 
 Users is an API allowing create, retrieve informations about an user and update it.
@@ -93,6 +103,14 @@ For information:
     "zipcode": "33300",
     "code_partner": "LABELTERRE"
   }
+}
+```
+
+> Response JSON structured like this:
+
+```json
+{
+  "id": 2,
 }
 ```
 
