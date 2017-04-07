@@ -33,6 +33,16 @@ X-User-Token | "1G8_s7P-V-4MGojaKD7a"
 This endpoint allow signin user via email and password or facebook access_token.
 
 
+> Response JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "email": "frederique.petris@gmail.com",
+  "authentication_token": "ARIDO3557Z0Z0Z"
+}
+```
+
 ### HTTPS Request
 
 `POST https://app.cforgood.com/api/v1/`
@@ -53,16 +63,6 @@ If user never signin via facebook, the API return an error `402` to signin once 
 
 This endpoint signin a specific user.
 
-
-> Response JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "email": "frederique.petris@gmail.com",
-  "authentication_token": "ARIDO3557Z0Z0Z"
-}
-```
 
 # Users
 
