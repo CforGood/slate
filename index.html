@@ -141,8 +141,6 @@
 
 <h1 id="signin">Signin</h1>
 
-<p>This endpoint allow signin user via email and password or facebook access_token.</p>
-
 <blockquote>
 <p>Response JSON structured like this:</p>
 </blockquote>
@@ -152,6 +150,8 @@
   </span><span class="nt">"authentication_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ARIDO3557Z0Z0Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p>This endpoint allow signin user via email and password or facebook access_token.</p>
+
 <h3 id="https-request">HTTPS Request</h3>
 
 <p><code class="prettyprint">POST https://app.cforgood.com/api/v1/</code></p>
@@ -179,8 +179,6 @@
 </tbody></table>
 
 <p><code class="prettyprint">password</code> or <code class="prettyprint">access_token</code> are optional but one of both is mandatory.</p>
-
-<p>If user never signin via facebook, the API return an error <code class="prettyprint">402</code> to signin once via facebook on the web app.</p>
 
 <p>This endpoint signin a specific user.</p>
 
@@ -224,8 +222,8 @@
 <p>Response JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-</span><span class="err">}</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint creates a specific user.</p>
 
@@ -308,7 +306,6 @@ NO authenticated user!
   </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bordeaux"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"code_partner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GIFT3MONTH"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Abonné depuis le 16 mars 2017"</span><span class="p">,</span><span class="w">
-  </span><span class="err">json.supervisor_attributes</span><span class="w"> </span><span class="err">do</span><span class="w">
   </span><span class="nt">"supervisor_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"supervisor_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Néoplanète"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"supervisor_logo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
@@ -318,8 +315,8 @@ NO authenticated user!
     </span><span class="nt">"supervisor_logo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nt">"cause_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="w">
-    </span><span class="s2">"name"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Ecolo Info"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ecolo Info"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"National"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"picture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761753/yq5xhyxsbyy9rkxa4h6t.jpg"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_100,w_100/v1479761710/ijarsettafrhkyit22cz.jpg"</span><span class="p">,</span><span class="w">
@@ -1307,10 +1304,6 @@ Remember — need authenticated user!
 <tr>
 <td>401</td>
 <td>Unauthorized &ndash; Your API header parameters are wrong</td>
-</tr>
-<tr>
-<td>402</td>
-<td>Unauthorized &ndash; User should signin before with facebook on Web app</td>
 </tr>
 <tr>
 <td>403</td>
