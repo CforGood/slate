@@ -196,7 +196,7 @@ NO authenticated user!
     "user_offering_last_name": "Cforgood",
     "nb_month_beneficiary": 3
   },
-  "first_perk_offer":
+  "first_perk_offer_attributes":
   {
     "business_id": 23,
     "address_id": 41,
