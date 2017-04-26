@@ -456,6 +456,7 @@ Businesses is an API allowing retrieve some businesses with their addresses and 
     "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761848/xuhtfu5osbuttyhmfx3b.jpg",
     "business_category_id": 12,
     "like": 0,
+    "online": false,
     "addresses": [
       {
         "id": 28,
@@ -482,6 +483,7 @@ Businesses is an API allowing retrieve some businesses with their addresses and 
     "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761822/cc8ilkgti3avgssyxnrg.jpg",
     "business_category_id": 16,
     "like": 0,
+    "online": false,
     "addresses": [
       {
         "id": 23,
