@@ -464,6 +464,14 @@ Businesses is an API allowing retrieve some businesses with their addresses and 
         "longitude": -0.576172
       }
     ],
+    "labels": [
+      {
+        "name": "Engagement social"
+      },
+      {
+        "name": "Modèle collaboratif/participatif"
+      }
+    ],
     "perks": [
       {
         "id": 13,
@@ -489,6 +497,41 @@ Businesses is an API allowing retrieve some businesses with their addresses and 
         "id": 23,
         "latitude": 44.8518459,
         "longitude": -0.5718565
+      }
+    ],
+    "labels": [
+      {
+        "name": "Action Locale"
+      },
+      {
+        "name": "Circuit Court"
+      },
+      {
+        "name": "Engagement social"
+      },
+      {
+        "name": "Modèle collaboratif/participatif"
+      },
+      {
+        "name": "Monnaie Locale"
+      },
+      {
+        "name": "Politique anti-gaspillage"
+      },
+      {
+        "name": "Produits éco-responsables"
+      },
+      {
+        "name": "Zéro déchet"
+      },
+      {
+        "name": "Énergies renouvelables"
+      },
+      {
+        "name": "Épanouissement personnel"
+      },
+      {
+        "name": "Animation culturelle"
       }
     ],
     "perks": [
