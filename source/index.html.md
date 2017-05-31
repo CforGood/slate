@@ -669,7 +669,7 @@ Remember — need authenticated user!
       "appel": true,
       "durable": false,
       "flash": false,
-      "perk_detail_name": 2,
+      "perk_detail_id": 2,
       "all_day": false,
       "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761814/lhc1bxpwlliscwth3kma.jpg",
       "times_remaining": 0,
@@ -695,7 +695,7 @@ id | integer | The id of the business to retrieve
 address_id | integer | The id of the business address
 
 
-### Perk Detail
+### Perk Detail (perk_detail_id)
 
 This is the way the perk can be used
 
