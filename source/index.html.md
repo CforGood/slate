@@ -988,6 +988,67 @@ city | string |
 Remember — need authenticated user!
 </aside>
 
+# Contacts
+
+Contacts is an API allowing create contacts to invite.
+
+
+## Post a New Contact
+
+> Request
+
+```json
+{ "contacts":
+  [
+    {
+      "email": "allan@cforgood.com",
+      "first_name": "Allan",
+      "last_name": "Floury",
+      "city": "Bordeaux",
+      "telephone": "0102030405"
+    },
+    {
+      "email": "Fred@cforgood.com",
+      "first_name": "Fred",
+      "last_name": "Pétris",
+      "city": "Bordeaux",
+      "telephone": "0102030405"
+    }
+  ]
+}
+```
+
+> The above command returns JSON structured like this:
+
+```json
+  {
+    "nb_contacts": 3,
+    "quotas_reached": false
+  }
+```
+
+This endpoint creates a new contact.
+
+
+### HTTPS Request
+
+`Post https://app.cforgood.com/api/v1/contacts`
+
+### Parameters
+
+Parameter | Format | Description
+--------- | ------ | -----------
+email | string | Email of the contact
+first_name | string | First name of the contact
+last_name | string | Last time of the contact
+city | string | City of the contact
+telephone | string | Telephone of the contact
+
+<aside class="success">
+Remember — need authenticated user!
+</aside>
+
+
 
 <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
 
