@@ -827,40 +827,50 @@ Causes is an API allowing retrieve a list of causes, a specific cause and permit
 
 ```json
 [
-  {
-    "id": 9,
-    "name": "Surfrider Foundation Europe",
-    "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761780/kerdxyjb7uvbqzfhwq0i.jpg",
-    "like": 0,
-    "city": "Bordeaux"
+ {
+      "id": 16,
+      "name": "Keep A Breast Europe",
+      "impact": "25€ permettent de financer un atelier éducatif, créatif et ludique pour sensibiliser les 5/11 ans",
+      "cause_category": "Culturel",
+      "picture": null,
+      "like": 0,
+      "city": "Bordeaux"
   },
   {
-    "id": 4,
-    "name": "Osons Ici et Maintenant",
-    "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761735/lxnjjnsgljonbq89oifv.jpg",
-    "like": 0,
-    "city": "Bègles"
+      "id": 5,
+      "name": "Keep A Breast Europe",
+      "impact": "25€ permettent de financer un atelier éducatif, créatif et ludique pour sensibiliser les 5/11 ans",
+      "cause_category": "Santé",
+      "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761743/drftnjctv9peeqcjdcq4.jpg",
+      "like": 0,
+      "city": "Bordeaux"
   },
   {
-    "id": 2,
-    "name": "Etu-Récup",
-    "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761717/wvb36vhdecivgmdsixez.jpg",
-    "like": 0,
-    "city": "Pessac"
+      "id": 8,
+      "name": "Entr-Autres",
+      "impact": "200€ aide un jeune À se RÉINSÉRER",
+      "cause_category": "Insertion/Précarité",
+      "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761769/kbbcobil2eogqz8yuymp.jpg",
+      "like": 0,
+      "city": "Bordeaux"
   },
   {
-    "id": 3,
-    "name": "MakeSense",
-    "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761726/onvq0xsqiznclyv8y5ou.jpg",
-    "like": 0,
-    "city": "National"
+      "id": 7,
+      "name": "Disco Soupe",
+      "impact": "100€ financent une disco soupe",
+      "cause_category": "Environnement",
+      "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761760/x04dogcw8edn2s4s0guc.jpg",
+      "like": 3,
+      "city": "Bordeaux"
   },
   {
-    "id": 6,
-    "name": "Ecolo Info",
-    "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761753/yq5xhyxsbyy9rkxa4h6t.jpg",
-    "like": 0,
-    "city": "National"
+      "id": 4,
+      "name": "Osons Ici et Maintenant",
+      "impact": "Révéler le potentiel des jeunes 18 - 30 ans",
+      "cause_category": "Entrepreneuriat Social",
+      "picture": "https://res.cloudinary.com/dktivbech/image/upload/c_fill,dpr_2.0,h_350,w_450/v1479761735/lxnjjnsgljonbq89oifv.jpg",
+      "like": 0,
+      "city": "Bègles"
   }
 ]
 ```
