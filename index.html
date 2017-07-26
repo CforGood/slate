@@ -139,6 +139,31 @@
 </tr>
 </tbody></table>
 
+<h1 id="check-email">Check email</h1>
+
+<p>This endpoint check if email already exist in database.</p>
+
+<h3 id="https-request">HTTPS Request</h3>
+
+<p><code class="prettyprint">GET https://app.cforgood.com/api/v1/check</code></p>
+
+<h3 id="request-headers">Request headers</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>&ldquo;allan@cforgood.com&rdquo;</td>
+</tr>
+</tbody></table>
+
+<p>This endpoint control if email is present or not in the database.
+If email exist, the return status is 200 and 404 if not found.</p>
+
 <h1 id="signin">Signin</h1>
 
 <blockquote>
@@ -182,6 +207,20 @@
 
 <p>This endpoint signin a specific user.</p>
 
+<h1 id="logout">Logout</h1>
+
+<p>This endpoint allow logout of the user.</p>
+
+<h3 id="https-request">HTTPS Request</h3>
+
+<p><code class="prettyprint">DELETE https://app.cforgood.com/api/v1/logout</code></p>
+
+<p>This endpoint logout a specific user.</p>
+
+<aside class="success">
+Remember — need authenticated user!
+</aside>
+
 <h1 id="users">Users</h1>
 
 <p>Users is an API allowing create, retrieve informations about an user and update it.</p>
@@ -201,7 +240,7 @@
 <li>first_perk_offer = true - popup first_perk_offer</li>
 </ul>
 
-<h2 id="post-a-specific-user">Post a Specific User</h2>
+<h2 id="post-a-specific-user">Post a specific user</h2>
 
 <blockquote>
 <p>Request</p>
@@ -283,7 +322,7 @@
 NO authenticated user!
 </aside>
 
-<h2 id="get-a-specific-user">Get a Specific User</h2>
+<h2 id="get-a-specific-user">Get a specific user</h2>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -393,11 +432,7 @@ NO authenticated user!
 </tr>
 </tbody></table>
 
-<aside class="success">
-Remember — need authenticated user!
-</aside>
-
-<h2 id="patch-a-specific-user">Patch a Specific User</h2>
+<h2 id="patch-a-specific-user">Patch a specific user</h2>
 
 <blockquote>
 <p>Request</p>
@@ -521,7 +556,7 @@ Remember — need authenticated user!
 
 <p>Uses is an API allowing create and update an use.</p>
 
-<h2 id="post-a-new-use">Post a New Use</h2>
+<h2 id="post-a-new-use">Post a new use</h2>
 
 <blockquote>
 <p>Request</p>
@@ -565,7 +600,7 @@ Remember — need authenticated user!
 Remember — need authenticated user!
 </aside>
 
-<h2 id="patch-a-specific-use">Patch a Specific Use</h2>
+<h2 id="patch-a-specific-use">Patch a specific use</h2>
 
 <blockquote>
 <p>Request</p>
@@ -667,7 +702,7 @@ Remember — need authenticated user!
 
 <p>Businesses is an API allowing retrieve some businesses with their addresses and perks.</p>
 
-<h2 id="get-businesses-around-10km">Get Businesses around 10km</h2>
+<h2 id="get-businesses">Get businesses</h2>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -841,7 +876,7 @@ Remember — need authenticated user!
 Remember — need authenticated user!
 </aside>
 
-<h2 id="get-a-specific-business">Get a Specific Business</h2>
+<h2 id="get-a-specific-business">Get a specific business</h2>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -851,7 +886,7 @@ Remember — need authenticated user!
   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSPIRESELF"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"activity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pour votre inspiration"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.inspireself.org/"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"telephone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+33663075090"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+33663075090"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"info@inspireself.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nous offrons des produits efficaces, réduisant considérablement les effets nocifs (chaleur, maux de têtes, migraines, baisse d'énergie, perte d'équilibre, manque d'ancrage, stress ) générés par les pollutions éléctromagnétiques des téléphones portables, ordinateurs, box wifi, tablettes, montres connectées, DECT, écoutes -bébés, tv en fait tous appareils émettant des ondes éléctromagnétiques de très hautes ou très basses fréquences...."</span><span class="p">,</span><span class="w">
   </span><span class="nt">"business_category_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
@@ -1090,7 +1125,7 @@ Remember — need authenticated user!
 
 <p>Causes is an API allowing retrieve a list of causes, a specific cause and permit to create a cause.</p>
 
-<h2 id="get-some-causes">Get Some Causes</h2>
+<h2 id="get-some-causes">Get some causes</h2>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1174,7 +1209,7 @@ Remember — need authenticated user!
 Remember — need authenticated user!
 </aside>
 
-<h2 id="get-a-specific-cause">Get a Specific Cause</h2>
+<h2 id="get-a-specific-cause">Get a specific cause</h2>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1191,7 +1226,7 @@ Remember — need authenticated user!
   </span><span class="nt">"facebook"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KeepABreastFrance"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"keepabreastEU"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"instagram"</span><span class="p">:</span><span class="w"> </span><span class="s2">"keepabreasteu"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"telephone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"europe@keep-a-breast.org"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.keep-a-breast.fr"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15, rue Francis Garnier"</span><span class="p">,</span><span class="w">
@@ -1342,7 +1377,7 @@ Remember — need authenticated user!
 
 <p>Contacts is an API allowing create contacts to invite.</p>
 
-<h2 id="post-a-new-contact">Post a New Contact</h2>
+<h2 id="post-some-new-contacts">Post some new contacts</h2>
 
 <blockquote>
 <p>Request</p>
@@ -1354,14 +1389,14 @@ Remember — need authenticated user!
       </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allan"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Floury"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bordeaux"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"telephone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0102030405"</span><span class="w">
+      </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0102030405"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fred@cforgood.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fred@cforgood.com"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fred"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pétris"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bordeaux"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"telephone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0102030405"</span><span class="w">
+      </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0102030405"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1371,14 +1406,15 @@ Remember — need authenticated user!
 </blockquote>
 <pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
     </span><span class="nt">"nb_contacts"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"quotas_reached"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="nt">"sponsoring_done"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"code_sponsor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GOODSPONSOR231"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint creates a new contact.</p>
+<p>This endpoint creates some new contacts.</p>
 
 <h3 id="https-request">HTTPS Request</h3>
 
-<p><code class="prettyprint">Post https://app.cforgood.com/api/v1/contacts</code></p>
+<p><code class="prettyprint">POST https://app.cforgood.com/api/v1/contacts</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -1410,9 +1446,9 @@ Remember — need authenticated user!
 <td>City of the contact</td>
 </tr>
 <tr>
-<td>telephone</td>
+<td>phone</td>
 <td>string</td>
-<td>Telephone of the contact</td>
+<td>phone of the contact</td>
 </tr>
 </tbody></table>
 
