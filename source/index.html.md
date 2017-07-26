@@ -28,6 +28,27 @@ X-User-Email | "allan@cforgood.com"
 X-User-Token | "1G8_s7P-V-4MGojaKD7a"
 
 
+# Check email
+
+
+This endpoint check if email already exist in database.
+
+### HTTPS Request
+
+`GET https://app.cforgood.com/api/v1/check`
+
+
+### Request headers
+
+Parameter | Description
+--------- | -----------
+email | "allan@cforgood.com"
+
+
+This endpoint control if email is present or not in the database.
+If email exist, the return status is 200 and 404 if not found.
+
+
 # Signin
 
 
@@ -63,6 +84,22 @@ access_token | "uid facebbok"
 This endpoint signin a specific user.
 
 
+# Logout
+
+This endpoint allow logout of the user.
+
+### HTTPS Request
+
+`DELETE https://app.cforgood.com/api/v1/logout`
+
+
+This endpoint logout a specific user.
+
+<aside class="success">
+Remember — need authenticated user!
+</aside>
+
+
 # Users
 
 Users is an API allowing create, retrieve informations about an user and update it.
@@ -79,7 +116,7 @@ For information:
 
 
 
-## Post a Specific User
+## Post a specific user
 
 > Request
 
@@ -132,7 +169,7 @@ NO authenticated user!
 </aside>
 
 
-## Get a Specific User
+## Get a specific user
 
 > The above command returns JSON structured like this:
 
@@ -234,12 +271,8 @@ Parameter | Format | Description
 --------- | ------ | -----------
 id | integer | The id of the user to retrieve
 
-<aside class="success">
-Remember — need authenticated user!
-</aside>
 
-
-## Patch a Specific User
+## Patch a specific user
 
 > Request
 
@@ -307,7 +340,7 @@ Remember — need authenticated user!
 Uses is an API allowing create and update an use.
 
 
-## Post a New Use
+## Post a new use
 
 > Request
 
@@ -347,7 +380,7 @@ Remember — need authenticated user!
 </aside>
 
 
-## Patch a Specific Use
+## Patch a specific use
 
 > Request
 
@@ -441,7 +474,7 @@ Remember — need authenticated user!
 
 Businesses is an API allowing retrieve some businesses with their addresses and perks.
 
-## Get Businesses around 10km
+## Get businesses
 
 
 > The above command returns JSON structured like this:
@@ -595,7 +628,7 @@ online | false | true : online businesses are also return
 Remember — need authenticated user!
 </aside>
 
-## Get a Specific Business
+## Get a specific business
 
 
 > The above command returns JSON structured like this:
@@ -606,7 +639,7 @@ Remember — need authenticated user!
   "name": "INSPIRESELF",
   "activity": "Pour votre inspiration",
   "url": "http://www.inspireself.org/",
-  "telephone": "+33663075090",
+  "phone": "+33663075090",
   "email": "info@inspireself.com",
   "description": "Nous offrons des produits efficaces, réduisant considérablement les effets nocifs (chaleur, maux de têtes, migraines, baisse d'énergie, perte d'équilibre, manque d'ancrage, stress ) générés par les pollutions éléctromagnétiques des téléphones portables, ordinateurs, box wifi, tablettes, montres connectées, DECT, écoutes -bébés, tv en fait tous appareils émettant des ondes éléctromagnétiques de très hautes ou très basses fréquences....",
   "business_category_id": 10,
@@ -821,7 +854,7 @@ Remember — need authenticated user!
 
 Causes is an API allowing retrieve a list of causes, a specific cause and permit to create a cause.
 
-## Get Some Causes
+## Get some causes
 
 > The above command returns JSON structured like this:
 
@@ -892,7 +925,7 @@ Parameter | Default | Description
 Remember — need authenticated user!
 </aside>
 
-## Get a Specific Cause
+## Get a specific cause
 
 
 > The above command returns JSON structured like this:
@@ -910,7 +943,7 @@ Remember — need authenticated user!
   "facebook": "KeepABreastFrance",
   "twitter": "keepabreastEU",
   "instagram": "keepabreasteu",
-  "telephone": null,
+  "phone": null,
   "email": "europe@keep-a-breast.org",
   "url": "http://www.keep-a-breast.fr",
   "street": "15, rue Francis Garnier",
@@ -1003,7 +1036,7 @@ Remember — need authenticated user!
 Contacts is an API allowing create contacts to invite.
 
 
-## Post a New Contact
+## Post some new contacts
 
 > Request
 
@@ -1015,14 +1048,14 @@ Contacts is an API allowing create contacts to invite.
       "first_name": "Allan",
       "last_name": "Floury",
       "city": "Bordeaux",
-      "telephone": "0102030405"
+      "phone": "0102030405"
     },
     {
-      "email": "Fred@cforgood.com",
+      "email": "fred@cforgood.com",
       "first_name": "Fred",
       "last_name": "Pétris",
       "city": "Bordeaux",
-      "telephone": "0102030405"
+      "phone": "0102030405"
     }
   ]
 }
@@ -1033,16 +1066,17 @@ Contacts is an API allowing create contacts to invite.
 ```json
   {
     "nb_contacts": 3,
-    "quotas_reached": false
+    "sponsoring_done": true,
+    "code_sponsor": "GOODSPONSOR231"
   }
 ```
 
-This endpoint creates a new contact.
+This endpoint creates some new contacts.
 
 
 ### HTTPS Request
 
-`Post https://app.cforgood.com/api/v1/contacts`
+`POST https://app.cforgood.com/api/v1/contacts`
 
 ### Parameters
 
@@ -1052,7 +1086,7 @@ email | string | Email of the contact
 first_name | string | First name of the contact
 last_name | string | Last time of the contact
 city | string | City of the contact
-telephone | string | Telephone of the contact
+phone | string | phone of the contact
 
 <aside class="success">
 Remember — need authenticated user!
