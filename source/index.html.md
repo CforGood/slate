@@ -49,6 +49,27 @@ This endpoint control if email is present or not in the database.
 If email exist, the return status is 200 and 404 if not found.
 
 
+# Check code partner
+
+
+This endpoint check if a code partner/promo is available according to geolocation.
+
+### HTTPS Request
+
+`GET https://app.cforgood.com/api/v1/partners?lat=44.866667&lng=-0.333333`
+
+
+> Response JSON structured like this:
+
+```json
+{
+  "code_partner": "CFORGOODBDX"
+}
+```
+
+This endpoint control if the coupon code is available according to geolocation.
+
+
 # Signin
 
 
