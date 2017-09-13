@@ -348,7 +348,7 @@ street | string |
 zipcode | string |
 city | string |
 cause_id | integer | Id of the supported cause
-picture | url | Url of  the picture loaded on Cloudinary
+remote_picture_url | url | Url of the picture loaded on Cloudinary
 
 
 <aside class="success">
