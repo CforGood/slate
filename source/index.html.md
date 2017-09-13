@@ -96,7 +96,7 @@ Parameter | Description
 --------- | -----------
 email | "allan@cforgood.com"
 password | "mot de passe"
-access_token | "uid facebbok"
+access_token | "uid facebook"
 
 
 `password` or `access_token` are optional but one of both is mandatory.
@@ -310,7 +310,7 @@ id | integer | The id of the user to retrieve
     "zipcode": "33300",
     "city": "Bordeaux",
     "cause_id": 9,
-    "picture": "https..."
+    "remote_picture_url": "https..."
   }
 }
 ```
