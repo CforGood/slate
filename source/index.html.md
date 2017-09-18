@@ -349,6 +349,7 @@ zipcode | string |
 city | string |
 cause_id | integer | Id of the supported cause
 remote_picture_url | url | Url of the picture loaded on Cloudinary
+stripeToken | string | Stripe Token of the card get via Stripe
 
 
 <aside class="success">
