@@ -1073,7 +1073,6 @@ Contacts is an API allowing create contacts to invite.
       "phone": "0102030405"
     },
     {
-      "email": "fred@cforgood.com",
       "first_name": "Fred",
       "last_name": "Pétris",
       "city": "Bordeaux",
@@ -1104,7 +1103,7 @@ This endpoint creates some new contacts.
 
 Parameter | Format | Description
 --------- | ------ | -----------
-email | string | Email of the contact
+email | string | Email of the contact (optional)
 first_name | string | First name of the contact
 last_name | string | Last time of the contact
 city | string | City of the contact
